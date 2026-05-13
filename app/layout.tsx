@@ -1,8 +1,9 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
+import { TopBar } from "@/components/layout/TopBar"
+import { Header } from "@/components/layout/Header"
+import { Footer } from "@/components/layout/Footer"
 import { CartDrawer } from "@/components/features/CartDrawer"
 
 const inter = Inter({
@@ -13,12 +14,20 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "HoneyBee Designs — Custom Sublimation Merch",
+    default: "HoneyBee Designs | Cute. Custom. Made for You.",
     template: "%s | HoneyBee Designs",
   },
   description:
-    "Vibrant, lasting custom sublimation merch — t-shirts, hoodies, tumblers, and bundles. Made to order, shipped with love.",
-  keywords: ["sublimation", "custom merch", "t-shirts", "hoodies", "tumblers"],
+    "Custom sublimation apparel, drinkware, accessories and gifts. Handmade with love, shipped with smiles.",
+  keywords: [
+    "sublimation",
+    "custom merch",
+    "custom apparel",
+    "personalized gifts",
+    "drinkware",
+    "keychains",
+    "decals",
+  ],
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -34,7 +43,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col bg-background text-foreground">
+      <body className="flex min-h-full flex-col bg-[var(--color-cream)] text-[var(--color-ink)]">
+        <TopBar />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
