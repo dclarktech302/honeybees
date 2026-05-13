@@ -1,44 +1,50 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap");
 
 @import "tailwindcss";
 
 /* ─── Brand Tokens ─────────────────────────────────────────────────────────── */
-/* Honey Gold #C6920A → oklch(0.68 0.16 68.72) */
+/*
+  #C6920A (Honey Gold)   → oklch(0.65 0.14 70)
+  #FFFDF7 (Warm Cream)   → oklch(0.99 0.008 95)
+  #FFFFFF (White)        → oklch(1 0 0)
+  #1A1A1A (Near Black)   → oklch(0.13 0 0)
+  #6B6B6B (Secondary)    → oklch(0.47 0 0)
+*/
 
 :root {
-  /* Brand */
-  --color-honey: oklch(0.68 0.16 68.72);
-  --color-honey-light: oklch(0.82 0.12 75);
-  --color-honey-dark: oklch(0.52 0.16 62);
+  /* ── Brand ── */
+  --color-honey:       oklch(0.65 0.14 70);
+  --color-honey-light: oklch(0.80 0.10 75);
+  --color-honey-dark:  oklch(0.50 0.14 65);
+  --color-cream:       oklch(0.99 0.008 95);
+  --color-surface:     oklch(1 0 0);
+  --color-ink:         oklch(0.13 0 0);
+  --color-secondary:   oklch(0.47 0 0);
+  --color-border-soft: oklch(0.92 0.005 90);
 
-  /* Neutrals */
-  --color-cream: oklch(0.98 0.01 90);
-  --color-cream-dark: oklch(0.94 0.015 85);
-  --color-ink: oklch(0.12 0 0);
-
-  /* shadcn/ui semantic tokens */
-  --background: var(--color-cream);
-  --foreground: var(--color-ink);
-  --card: oklch(1 0 0);
-  --card-foreground: var(--color-ink);
-  --popover: oklch(1 0 0);
-  --popover-foreground: var(--color-ink);
-  --primary: var(--color-honey);
-  --primary-foreground: oklch(0.12 0 0);
-  --secondary: var(--color-cream-dark);
-  --secondary-foreground: var(--color-ink);
-  --muted: oklch(0.96 0.008 85);
-  --muted-foreground: oklch(0.48 0 0);
-  --accent: var(--color-cream-dark);
-  --accent-foreground: var(--color-ink);
-  --destructive: oklch(0.577 0.245 27.325);
+  /* ── shadcn/ui semantic tokens ── */
+  --background:             var(--color-cream);
+  --foreground:             var(--color-ink);
+  --card:                   var(--color-surface);
+  --card-foreground:        var(--color-ink);
+  --popover:                var(--color-surface);
+  --popover-foreground:     var(--color-ink);
+  --primary:                var(--color-honey);
+  --primary-foreground:     oklch(1 0 0);
+  --secondary:              var(--color-border-soft);
+  --secondary-foreground:   var(--color-ink);
+  --muted:                  oklch(0.96 0.004 90);
+  --muted-foreground:       var(--color-secondary);
+  --accent:                 var(--color-border-soft);
+  --accent-foreground:      var(--color-ink);
+  --destructive:            oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.88 0.008 85);
-  --input: oklch(0.88 0.008 85);
-  --ring: var(--color-honey);
-  --radius: 0.5rem;
+  --border:                 var(--color-border-soft);
+  --input:                  var(--color-border-soft);
+  --ring:                   var(--color-honey);
+  --radius:                 0.5rem;
 
-  /* Chart colors */
+  /* ── Charts ── */
   --chart-1: var(--color-honey);
   --chart-2: oklch(0.72 0.12 180);
   --chart-3: oklch(0.55 0.15 240);
@@ -47,39 +53,46 @@
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
+  --color-background:             var(--background);
+  --color-foreground:             var(--foreground);
+  --color-card:                   var(--card);
+  --color-card-foreground:        var(--card-foreground);
+  --color-popover:                var(--popover);
+  --color-popover-foreground:     var(--popover-foreground);
+  --color-primary:                var(--primary);
+  --color-primary-foreground:     var(--primary-foreground);
+  --color-secondary:              var(--secondary);
+  --color-secondary-foreground:   var(--secondary-foreground);
+  --color-muted:                  var(--muted);
+  --color-muted-foreground:       var(--muted-foreground);
+  --color-accent:                 var(--accent);
+  --color-accent-foreground:      var(--accent-foreground);
+  --color-destructive:            var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-honey: var(--color-honey);
+  --color-border:                 var(--border);
+  --color-input:                  var(--input);
+  --color-ring:                   var(--ring);
+
+  /* Brand aliases exposed to Tailwind */
+  --color-honey:       var(--color-honey);
   --color-honey-light: var(--color-honey-light);
-  --color-honey-dark: var(--color-honey-dark);
-  --color-cream: var(--color-cream);
-  --color-cream-dark: var(--color-cream-dark);
-  --color-ink: var(--color-ink);
+  --color-honey-dark:  var(--color-honey-dark);
+  --color-cream:       var(--color-cream);
+  --color-surface:     var(--color-surface);
+  --color-ink:         var(--color-ink);
+  --color-secondary-text: var(--color-secondary);
+  --color-border-soft: var(--color-border-soft);
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, "Cascadia Code", monospace;
 }
 
+/* ─── Reset ─────────────────────────────────────────────────────────────────── */
 * {
   border-color: var(--border);
 }
@@ -88,4 +101,17 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Marquee ────────────────────────────────────────────────────────────────── */
+.marquee-track {
+  display: flex;
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }

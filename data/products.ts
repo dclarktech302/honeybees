@@ -1,179 +1,216 @@
 import type { Product, Collection } from "@/lib/types"
 
+// ─── Collections ──────────────────────────────────────────────────────────────
+
 export const placeholderCollections: Collection[] = [
   {
     id: "col-1",
-    title: "T-Shirts",
-    handle: "t-shirts",
-    description: "Custom sublimation printed t-shirts with vibrant, lasting color.",
-    image: { url: "/images/collection-tshirts.jpg", altText: "T-Shirts collection" },
+    title: "Apparel",
+    handle: "apparel",
+    description: "Custom sublimation shirts, hoodies & more.",
   },
   {
     id: "col-2",
-    title: "Hoodies",
-    handle: "hoodies",
-    description: "All-over print hoodies crafted for comfort and style.",
-    image: { url: "/images/collection-hoodies.jpg", altText: "Hoodies collection" },
+    title: "Drinkware",
+    handle: "drinkware",
+    description: "Personalized tumblers, mugs & water bottles.",
   },
   {
     id: "col-3",
-    title: "Tumblers",
-    handle: "tumblers",
-    description: "Personalized sublimation tumblers — perfect for everyday use.",
-    image: { url: "/images/collection-tumblers.jpg", altText: "Tumblers collection" },
+    title: "Keychains",
+    handle: "keychains",
+    description: "Custom acrylic & sublimation keychains.",
   },
   {
     id: "col-4",
+    title: "Stickers & Decals",
+    handle: "stickers-decals",
+    description: "Waterproof vinyl decals & sticker sheets.",
+  },
+  {
+    id: "col-5",
+    title: "Gift Ideas",
+    handle: "gift-ideas",
+    description: "Perfect custom gifts for every occasion.",
+  },
+  {
+    id: "col-6",
     title: "Bundles",
     handle: "bundles",
-    description: "Mix-and-match bundle deals for the best value.",
-    image: { url: "/images/collection-bundles.jpg", altText: "Bundles collection" },
+    description: "Bundle & save on your favorite HoneyBee items.",
   },
 ]
+
+// ─── Featured products (seeded from real Shopify store names) ─────────────────
 
 export const placeholderProducts: Product[] = [
   {
     id: "prod-1",
-    title: "Honeybee Classic Tee",
-    handle: "honeybee-classic-tee",
+    title: "Turtley Awesome",
+    handle: "turtley-awesome",
     description:
-      "Soft, vibrant sublimation-printed tee featuring original HoneyBee Designs artwork. Full-color, edge-to-edge print that won't crack or fade.",
-    price: 32.0,
-    compareAtPrice: 40.0,
-    images: [
-      {
-        id: "img-1",
-        url: "/images/product-tee-1.jpg",
-        altText: "Honeybee Classic Tee front",
-      },
-    ],
+      "Show the world just how awesome you are with this adorable turtle sublimation tee. Full-color, edge-to-edge print that won't crack or fade!",
+    price: 20.0,
+    images: [],
     variants: [
       {
         id: "var-1-s",
         title: "Small",
-        price: 32.0,
+        price: 20.0,
         availableForSale: true,
         selectedOptions: [{ name: "Size", value: "S" }],
       },
       {
         id: "var-1-m",
         title: "Medium",
-        price: 32.0,
+        price: 20.0,
         availableForSale: true,
         selectedOptions: [{ name: "Size", value: "M" }],
       },
       {
         id: "var-1-l",
         title: "Large",
-        price: 32.0,
+        price: 20.0,
         availableForSale: true,
         selectedOptions: [{ name: "Size", value: "L" }],
       },
-      {
-        id: "var-1-xl",
-        title: "XL",
-        price: 32.0,
-        availableForSale: true,
-        selectedOptions: [{ name: "Size", value: "XL" }],
-      },
     ],
-    collections: ["t-shirts"],
+    collections: ["apparel"],
+    // TODO: add real images from Drive
+    rating: 5,
+    reviewCount: 42,
   },
   {
     id: "prod-2",
-    title: "Golden Hour Hoodie",
-    handle: "golden-hour-hoodie",
+    title: "Turtley Kids",
+    handle: "turtley-kids",
     description:
-      "All-over sublimation hoodie with a warm golden-hour sunset design. Heavyweight fleece, kangaroo pocket, and a print that lasts.",
-    price: 58.0,
-    images: [
-      {
-        id: "img-2",
-        url: "/images/product-hoodie-1.jpg",
-        altText: "Golden Hour Hoodie front",
-      },
-    ],
+      "Adorable turtle-themed sublimation shirt for the little ones. Super soft, vibrant colors, and designed to last through all the adventures!",
+    price: 18.0,
+    images: [],
     variants: [
+      {
+        id: "var-2-xs",
+        title: "XS",
+        price: 18.0,
+        availableForSale: true,
+        selectedOptions: [{ name: "Size", value: "XS" }],
+      },
       {
         id: "var-2-s",
         title: "Small",
-        price: 58.0,
+        price: 18.0,
+        availableForSale: true,
+        selectedOptions: [{ name: "Size", value: "S" }],
+      },
+    ],
+    collections: ["apparel"],
+    rating: 5,
+    reviewCount: 28,
+  },
+  {
+    id: "prod-3",
+    title: "Turtley Coasters",
+    handle: "turtley-coasters",
+    description:
+      "Set of 4 custom sublimation coasters featuring the beloved Turtley design. Perfect for your home or as a gift!",
+    price: 6.0,
+    images: [],
+    variants: [
+      {
+        id: "var-3-default",
+        title: "Set of 4",
+        price: 6.0,
+        availableForSale: true,
+        selectedOptions: [{ name: "Quantity", value: "Set of 4" }],
+      },
+    ],
+    collections: ["gift-ideas"],
+    rating: 5,
+    reviewCount: 17,
+  },
+  {
+    id: "prod-4",
+    title: "Turtley Decals",
+    handle: "turtley-decals",
+    description:
+      "Waterproof vinyl decal featuring the fan-favorite Turtley design. Sticks to cars, water bottles, laptops — anywhere you want to spread some joy!",
+    price: 5.0,
+    images: [],
+    variants: [
+      {
+        id: "var-4-sm",
+        title: "Small (3\")",
+        price: 5.0,
+        availableForSale: true,
+        selectedOptions: [{ name: "Size", value: "Small 3\"" }],
+      },
+      {
+        id: "var-4-lg",
+        title: "Large (5\")",
+        price: 7.0,
+        availableForSale: true,
+        selectedOptions: [{ name: "Size", value: "Large 5\"" }],
+      },
+    ],
+    collections: ["stickers-decals"],
+    rating: 5,
+    reviewCount: 61,
+  },
+  {
+    id: "prod-5",
+    title: "Turtley Keychains",
+    handle: "turtley-keychains",
+    description:
+      "Custom acrylic keychain with a vibrant Turtley sublimation print. Double-sided, lightweight, and the perfect bag charm!",
+    price: 5.0,
+    images: [],
+    variants: [
+      {
+        id: "var-5-default",
+        title: "Default",
+        price: 5.0,
+        availableForSale: true,
+        selectedOptions: [{ name: "Style", value: "Standard" }],
+      },
+    ],
+    collections: ["keychains"],
+    rating: 5,
+    reviewCount: 33,
+  },
+  {
+    id: "prod-6",
+    title: "Small Town Christmas",
+    handle: "small-town-christmas",
+    description:
+      "Celebrate small-town holiday vibes with this cozy sublimation tee. A warm, festive design that makes the perfect Christmas gift!",
+    price: 20.0,
+    images: [],
+    variants: [
+      {
+        id: "var-6-s",
+        title: "Small",
+        price: 20.0,
         availableForSale: true,
         selectedOptions: [{ name: "Size", value: "S" }],
       },
       {
-        id: "var-2-m",
+        id: "var-6-m",
         title: "Medium",
-        price: 58.0,
+        price: 20.0,
         availableForSale: true,
         selectedOptions: [{ name: "Size", value: "M" }],
       },
       {
-        id: "var-2-l",
+        id: "var-6-l",
         title: "Large",
-        price: 58.0,
-        availableForSale: false,
+        price: 20.0,
+        availableForSale: true,
         selectedOptions: [{ name: "Size", value: "L" }],
       },
     ],
-    collections: ["hoodies"],
-  },
-  {
-    id: "prod-3",
-    title: "HoneyBee Tumbler 20oz",
-    handle: "honeybee-tumbler-20oz",
-    description:
-      "Stainless steel 20oz tumbler with full-wrap sublimation design. Keeps drinks cold 24hrs, hot 12hrs. BPA-free lid included.",
-    price: 28.0,
-    images: [
-      {
-        id: "img-3",
-        url: "/images/product-tumbler-1.jpg",
-        altText: "HoneyBee Tumbler 20oz",
-      },
-    ],
-    variants: [
-      {
-        id: "var-3-default",
-        title: "Default",
-        price: 28.0,
-        availableForSale: true,
-        selectedOptions: [{ name: "Size", value: "20oz" }],
-      },
-      {
-        id: "var-3-30oz",
-        title: "30oz",
-        price: 34.0,
-        availableForSale: true,
-        selectedOptions: [{ name: "Size", value: "30oz" }],
-      },
-    ],
-    collections: ["tumblers"],
-  },
-  {
-    id: "prod-4",
-    title: "Starter Bundle",
-    handle: "starter-bundle",
-    description:
-      "Get the full HoneyBee experience: 1 Classic Tee + 1 Tumbler at a bundled price.",
-    price: 52.0,
-    compareAtPrice: 60.0,
-    images: [
-      {
-        id: "img-4",
-        url: "/images/product-bundle-1.jpg",
-        altText: "HoneyBee Starter Bundle",
-      },
-    ],
-    variants: [
-      {
-        id: "var-4-default",
-        title: "Default",
-        price: 52.0,
-        availableForSale: true,
-        selectedOptions: [{ name: "Bundle", value: "Standard" }],
-      },
-    ],
-    collections: ["bundles"],
+    collections: ["apparel"],
+    rating: 5,
+    reviewCount: 19,
   },
 ]

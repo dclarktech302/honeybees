@@ -8,6 +8,8 @@ export interface Product {
   images: ProductImage[]
   variants: Variant[]
   collections: string[]
+  rating?: number
+  reviewCount?: number
 }
 
 export interface ProductImage {
