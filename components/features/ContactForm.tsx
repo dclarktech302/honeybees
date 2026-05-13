@@ -1,22 +1,32 @@
 "use client"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import type { ContactFormData } from "@/lib/types"
+
+const SUBJECTS = [
+  "General Question",
+  "Custom Order Request",
+  "Order Status / Tracking",
+  "Returns & Exchanges",
+  "Wholesale / Bulk Pricing",
+]
+
+interface FormState {
+  name: string
+  email: string
+  subject: string
+  message: string
+  file: File | null
+}
 
 export function ContactForm() {
-  const [form, setForm] = useState<ContactFormData>({
+  const [form, setForm] = useState<FormState>({
     name: "",
     email: "",
+    subject: SUBJECTS[0],
     message: "",
-    customRequest: "",
+    file: null,
   })
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
-    "idle"
-  )
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -25,76 +35,122 @@ export function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          subject: form.subject,
+          message: form.message,
+        }),
       })
-      if (!res.ok) throw new Error("Failed to send")
+      if (!res.ok) throw new Error()
       setStatus("success")
-      setForm({ name: "", email: "", message: "", customRequest: "" })
+      setForm({ name: "", email: "", subject: SUBJECTS[0], message: "", file: null })
     } catch {
       setStatus("error")
     }
   }
 
+  const inputClass =
+    "w-full rounded-xl border border-[var(--color-border)] bg-white px-4 py-2.5 text-[14px] outline-none transition-colors focus:border-[var(--color-coral)] focus:ring-2 focus:ring-[var(--color-coral)]/20"
+  const labelClass = "mb-1 block text-[12px] font-bold uppercase tracking-wide text-[var(--color-ink)]"
+
+  if (status === "success") {
+    return (
+      <div className="flex flex-col items-center gap-3 py-12 text-center">
+        <span className="text-5xl">🐝</span>
+        <p className="text-[18px] font-black text-[var(--color-ink)]">Message sent!</p>
+        <p className="text-[14px] text-[var(--color-secondary)]">
+          We&apos;ll get back to you within 1 business day.
+        </p>
+        <button
+          onClick={() => setStatus("idle")}
+          className="mt-2 text-[13px] text-[var(--color-coral)] underline underline-offset-2"
+        >
+          Send another message
+        </button>
+      </div>
+    )
+  }
+
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
-        <div className="space-y-1.5">
-          <Label htmlFor="name">Name</Label>
-          <Input
-            id="name"
+        <div>
+          <label htmlFor="cf-name" className={labelClass}>Name</label>
+          <input
+            id="cf-name"
             required
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
             placeholder="Jane Smith"
+            className={inputClass}
           />
         </div>
-        <div className="space-y-1.5">
-          <Label htmlFor="email">Email</Label>
-          <Input
-            id="email"
+        <div>
+          <label htmlFor="cf-email" className={labelClass}>Email</label>
+          <input
+            id="cf-email"
             type="email"
             required
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
             placeholder="jane@example.com"
+            className={inputClass}
           />
         </div>
       </div>
 
-      <div className="space-y-1.5">
-        <Label htmlFor="customRequest">Custom Request (optional)</Label>
-        <Input
-          id="customRequest"
-          value={form.customRequest}
-          onChange={(e) => setForm({ ...form, customRequest: e.target.value })}
-          placeholder="What would you like customized?"
-        />
+      <div>
+        <label htmlFor="cf-subject" className={labelClass}>Subject</label>
+        <select
+          id="cf-subject"
+          value={form.subject}
+          onChange={(e) => setForm({ ...form, subject: e.target.value })}
+          className={inputClass}
+        >
+          {SUBJECTS.map((s) => (
+            <option key={s} value={s}>{s}</option>
+          ))}
+        </select>
       </div>
 
-      <div className="space-y-1.5">
-        <Label htmlFor="message">Message</Label>
-        <Textarea
-          id="message"
+      <div>
+        <label htmlFor="cf-message" className={labelClass}>Message</label>
+        <textarea
+          id="cf-message"
           required
           rows={5}
           value={form.message}
           onChange={(e) => setForm({ ...form, message: e.target.value })}
           placeholder="Tell us how we can help..."
+          className={inputClass}
         />
       </div>
 
-      <Button type="submit" size="lg" disabled={status === "loading"} className="w-full sm:w-auto">
-        {status === "loading" ? "Sending…" : "Send Message"}
-      </Button>
+      <div>
+        <label htmlFor="cf-file" className={labelClass}>
+          Attach a File <span className="font-normal normal-case text-[var(--color-secondary)]">(optional — design reference, photo, etc.)</span>
+        </label>
+        <input
+          id="cf-file"
+          type="file"
+          accept="image/*,.pdf"
+          onChange={(e) => setForm({ ...form, file: e.target.files?.[0] ?? null })}
+          className="w-full rounded-xl border border-[var(--color-border)] bg-white px-4 py-2 text-[13px] text-[var(--color-secondary)] file:mr-3 file:rounded-full file:border-0 file:bg-[var(--color-coral)] file:px-3 file:py-1 file:text-[11px] file:font-bold file:text-white"
+        />
+      </div>
 
-      {status === "success" && (
-        <p className="text-sm text-green-600">
-          Message sent! We&apos;ll get back to you soon.
-        </p>
-      )}
+      <button
+        type="submit"
+        disabled={status === "loading"}
+        className="w-full rounded-full bg-[var(--color-coral)] py-3.5 text-[14px] font-bold text-white transition-all hover:bg-[var(--color-coral-dark)] disabled:opacity-60 sm:w-auto sm:min-w-[200px]"
+      >
+        {status === "loading" ? "Sending…" : "SEND MESSAGE ♥"}
+      </button>
+
       {status === "error" && (
-        <p className="text-sm text-destructive">
-          Something went wrong. Please try again.
+        <p className="text-[12px] text-red-500">
+          Something went wrong. Please try again or email us directly.
         </p>
       )}
     </form>

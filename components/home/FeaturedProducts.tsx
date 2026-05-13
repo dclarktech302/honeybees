@@ -1,5 +1,7 @@
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+"use client"
+
+import { useRef } from "react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import { ProductCard } from "@/components/features/ProductCard"
 import type { Product } from "@/lib/types"
 
@@ -8,41 +10,50 @@ interface FeaturedProductsProps {
 }
 
 export function FeaturedProducts({ products }: FeaturedProductsProps) {
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  const scroll = (dir: "left" | "right") => {
+    if (!scrollRef.current) return
+    const amount = scrollRef.current.clientWidth * 0.7
+    scrollRef.current.scrollBy({ left: dir === "right" ? amount : -amount, behavior: "smooth" })
+  }
+
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-      {/* Heading */}
-      <div className="mb-10 flex items-end justify-between">
-        <div>
-          <h2 className="text-3xl font-black tracking-tight text-[var(--color-ink)]">
-            Featured Products
-          </h2>
-          <p className="mt-1 text-[15px] text-[var(--color-secondary)]">
-            Our most loved custom designs
-          </p>
+    <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <h2 className="mb-8 text-center text-[28px] font-black text-[var(--color-ink)]">
+        ♥ FEATURED PRODUCTS ♥
+      </h2>
+
+      <div className="relative">
+        {/* Prev */}
+        <button
+          onClick={() => scroll("left")}
+          aria-label="Scroll left"
+          className="absolute -left-4 top-1/2 z-10 hidden -translate-y-1/2 rounded-full border border-[var(--color-border)] bg-white p-2 shadow-sm transition-shadow hover:shadow-md lg:flex"
+        >
+          <ChevronLeft className="h-5 w-5 text-[var(--color-ink)]" />
+        </button>
+
+        {/* Carousel */}
+        <div
+          ref={scrollRef}
+          className="no-scrollbar flex gap-4 overflow-x-auto pb-2"
+        >
+          {products.map((p) => (
+            <div key={p.id} className="w-[160px] flex-shrink-0 sm:w-[180px] lg:w-[200px]">
+              <ProductCard product={p} />
+            </div>
+          ))}
         </div>
-        <Link
-          href="/shop"
-          className="hidden items-center gap-1 text-[13px] font-medium text-[var(--color-honey)] hover:underline sm:flex"
-        >
-          View All <ArrowRight className="h-3.5 w-3.5" />
-        </Link>
-      </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
-
-      {/* Mobile "view all" */}
-      <div className="mt-8 flex justify-center sm:hidden">
-        <Link
-          href="/shop"
-          className="inline-flex items-center gap-1.5 rounded-full border-2 border-[var(--color-honey)] px-6 py-2.5 text-[14px] font-semibold text-[var(--color-honey)] hover:bg-[var(--color-honey)] hover:text-white transition-colors"
+        {/* Next */}
+        <button
+          onClick={() => scroll("right")}
+          aria-label="Scroll right"
+          className="absolute -right-4 top-1/2 z-10 hidden -translate-y-1/2 rounded-full border border-[var(--color-border)] bg-white p-2 shadow-sm transition-shadow hover:shadow-md lg:flex"
         >
-          View All Products <ArrowRight className="h-4 w-4" />
-        </Link>
+          <ChevronRight className="h-5 w-5 text-[var(--color-ink)]" />
+        </button>
       </div>
     </section>
   )

@@ -1,54 +1,58 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap");
 
 @import "tailwindcss";
 
-/* ─── Brand Tokens ─────────────────────────────────────────────────────────── */
-/*
-  #C6920A (Honey Gold)   → oklch(0.65 0.14 70)
-  #FFFDF7 (Warm Cream)   → oklch(0.99 0.008 95)
-  #FFFFFF (White)        → oklch(1 0 0)
-  #1A1A1A (Near Black)   → oklch(0.13 0 0)
-  #6B6B6B (Secondary)    → oklch(0.47 0 0)
-*/
+/* ─── Brand Tokens ───────────────────────────────────────────────────────────
+   #E8748A  Coral-pink  → oklch(0.68 0.14 5)   — primary CTA, accents
+   #C6920A  Honey gold  → oklch(0.65 0.14 70)  — logo, secondary accent
+   #FFF5F5  Background  → oklch(0.99 0.006 5)  — page bg
+   #FFF0F0  Light pink  → oklch(0.98 0.01 5)   — topbar, hero bg
+   #FFFFFF  Surface     → oklch(1 0 0)
+   #1A1A1A  Near-black  → oklch(0.13 0 0)
+   #6B6B6B  Secondary   → oklch(0.47 0 0)
+───────────────────────────────────────────────────────────────────────────── */
 
 :root {
   /* ── Brand ── */
+  --color-coral:       oklch(0.68 0.14 5);
+  --color-coral-dark:  oklch(0.56 0.14 5);
+  --color-coral-light: oklch(0.94 0.04 5);
   --color-honey:       oklch(0.65 0.14 70);
-  --color-honey-light: oklch(0.80 0.10 75);
   --color-honey-dark:  oklch(0.50 0.14 65);
-  --color-cream:       oklch(0.99 0.008 95);
+  --color-background:  oklch(0.99 0.006 5);
+  --color-topbar:      oklch(0.98 0.01 5);
   --color-surface:     oklch(1 0 0);
   --color-ink:         oklch(0.13 0 0);
   --color-secondary:   oklch(0.47 0 0);
-  --color-border-soft: oklch(0.92 0.005 90);
+  --color-border:      oklch(0.93 0.006 5);
 
   /* ── shadcn/ui semantic tokens ── */
-  --background:             var(--color-cream);
+  --background:             var(--color-background);
   --foreground:             var(--color-ink);
   --card:                   var(--color-surface);
   --card-foreground:        var(--color-ink);
   --popover:                var(--color-surface);
   --popover-foreground:     var(--color-ink);
-  --primary:                var(--color-honey);
+  --primary:                var(--color-coral);
   --primary-foreground:     oklch(1 0 0);
-  --secondary:              var(--color-border-soft);
+  --secondary:              oklch(0.96 0.004 5);
   --secondary-foreground:   var(--color-ink);
-  --muted:                  oklch(0.96 0.004 90);
+  --muted:                  oklch(0.97 0.003 5);
   --muted-foreground:       var(--color-secondary);
-  --accent:                 var(--color-border-soft);
+  --accent:                 oklch(0.96 0.004 5);
   --accent-foreground:      var(--color-ink);
   --destructive:            oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.98 0 0);
-  --border:                 var(--color-border-soft);
-  --input:                  var(--color-border-soft);
-  --ring:                   var(--color-honey);
+  --border:                 var(--color-border);
+  --input:                  var(--color-border);
+  --ring:                   var(--color-coral);
   --radius:                 0.5rem;
 
   /* ── Charts ── */
-  --chart-1: var(--color-honey);
-  --chart-2: oklch(0.72 0.12 180);
-  --chart-3: oklch(0.55 0.15 240);
-  --chart-4: oklch(0.65 0.18 30);
+  --chart-1: var(--color-coral);
+  --chart-2: var(--color-honey);
+  --chart-3: oklch(0.72 0.12 180);
+  --chart-4: oklch(0.55 0.15 240);
   --chart-5: oklch(0.75 0.1 120);
 }
 
@@ -73,15 +77,16 @@
   --color-input:                  var(--input);
   --color-ring:                   var(--ring);
 
-  /* Brand aliases exposed to Tailwind */
+  /* Brand aliases */
+  --color-coral:       var(--color-coral);
+  --color-coral-dark:  var(--color-coral-dark);
+  --color-coral-light: var(--color-coral-light);
   --color-honey:       var(--color-honey);
-  --color-honey-light: var(--color-honey-light);
   --color-honey-dark:  var(--color-honey-dark);
-  --color-cream:       var(--color-cream);
+  --color-topbar:      var(--color-topbar);
   --color-surface:     var(--color-surface);
   --color-ink:         var(--color-ink);
   --color-secondary-text: var(--color-secondary);
-  --color-border-soft: var(--color-border-soft);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -92,10 +97,8 @@
   --font-mono: ui-monospace, "Cascadia Code", monospace;
 }
 
-/* ─── Reset ─────────────────────────────────────────────────────────────────── */
-* {
-  border-color: var(--border);
-}
+/* ─── Reset ── */
+* { border-color: var(--border); }
 
 body {
   background-color: var(--background);
@@ -105,13 +108,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ─── Marquee ────────────────────────────────────────────────────────────────── */
-.marquee-track {
-  display: flex;
-  animation: marquee 30s linear infinite;
-}
-
+/* ─── Marquee ── */
+.marquee-track { display: flex; animation: marquee 30s linear infinite; }
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+
+/* ─── Utilities ── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
