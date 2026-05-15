@@ -1,31 +1,29 @@
 const ITEMS = [
-  "Made with Love",
-  "Packed with Care",
-  "Shipped with Smiles",
-  "Free Shipping on Orders $75+",
-  "5,000+ Happy Customers",
+  { icon: "♥", text: "Made with Love" },
+  { icon: "📦", text: "Packed with Care" },
+  { icon: "🚚", text: "Shipped with Smiles" },
+  { icon: "🚚", text: "Free Shipping on Orders $75+" },
+  { icon: "⭐", text: "5,000+ Happy Customers" },
 ]
 
-const SEP = "·"
-
 export function TopBar() {
-  // Duplicate items so the seamless loop works at any viewport width
   const track = [...ITEMS, ...ITEMS]
-
   return (
     <div
-      className="overflow-hidden bg-[var(--color-honey)] py-2"
+      className="overflow-hidden border-b border-[var(--color-border)] py-1.5"
+      style={{ backgroundColor: "var(--color-topbar)" }}
       aria-label="Site announcements"
     >
       <div className="marquee-track whitespace-nowrap">
         {track.map((item, i) => (
           <span
             key={i}
-            className="inline-flex items-center gap-3 px-4 text-[13px] font-medium text-white"
+            className="inline-flex items-center gap-1.5 px-5 text-[12px] font-medium text-[var(--color-ink)]"
           >
-            {item}
-            <span className="opacity-60" aria-hidden>
-              {SEP}
+            <span>{item.icon}</span>
+            {item.text}
+            <span className="ml-3 text-[var(--color-border)] opacity-60" aria-hidden>
+              |
             </span>
           </span>
         ))}

@@ -1,43 +1,38 @@
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
 
 const CATEGORIES = [
-  { name: "Apparel",            handle: "apparel",            emoji: "👕" },
-  { name: "Drinkware",          handle: "drinkware",          emoji: "☕" },
-  { name: "Keychains",          handle: "keychains",          emoji: "🔑" },
-  { name: "Decals & Stickers",  handle: "stickers-decals",    emoji: "🏷️" },
-  { name: "Gift Ideas",         handle: "gift-ideas",         emoji: "🎁" },
-  { name: "Custom Items",       handle: "custom-items",       emoji: "✨" },
-  { name: "New Arrivals",       handle: "new-arrivals",       emoji: "🆕" },
-  { name: "Bundles",            handle: "bundles",            emoji: "📦" },
-  { name: "Business Products",  handle: "business-products",  emoji: "💼" },
+  { name: "APPAREL",           handle: "apparel",           emoji: "👕" },
+  { name: "DRINKWARE",         handle: "drinkware",         emoji: "☕" },
+  { name: "TOTE BAGS",         handle: "tote-bags",         emoji: "👜" },
+  { name: "KEYCHAINS",         handle: "keychains",         emoji: "🔑" },
+  { name: "DECALS & STICKERS", handle: "stickers-decals",   emoji: "🏷️" },
+  { name: "HOME DECOR",        handle: "home-lifestyle",    emoji: "🏠" },
+  { name: "CUSTOM ITEMS",      handle: "custom-items",      emoji: "✨" },
+  { name: "GIFTS",             handle: "gift-ideas",        emoji: "🎁" },
+  { name: "NEW ARRIVALS",      handle: "new-arrivals",      emoji: "🆕" },
 ]
 
 export function CategoryGrid() {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
       {/* Heading */}
-      <div className="mb-10 text-center">
-        <h2 className="text-3xl font-black tracking-tight text-[var(--color-ink)]">
-          Shop by Category
-        </h2>
-        <p className="mt-2 text-[15px] text-[var(--color-secondary)]">
-          Something special for every season, every reason, and every you!
-        </p>
-      </div>
+      <h2 className="mb-8 text-center text-[28px] font-black text-[var(--color-ink)]">
+        ♥ SHOP BY CATEGORY ♥
+      </h2>
 
-      {/* Grid */}
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      {/* Horizontal scroll row */}
+      <div className="no-scrollbar flex gap-3 overflow-x-auto pb-2">
         {CATEGORIES.map(({ name, handle, emoji }) => (
           <Link
             key={handle}
             href={`/shop/${handle}`}
-            className="group flex aspect-square flex-col items-center justify-center gap-2 rounded-2xl border-2 border-[var(--color-border-soft)] bg-[var(--color-cream)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--color-honey)] hover:shadow-md"
+            className="group flex w-[130px] flex-shrink-0 flex-col items-center gap-2 rounded-xl border-2 border-[var(--color-border)] bg-[var(--color-background)] p-3 transition-all hover:border-[var(--color-coral)] hover:shadow-sm"
           >
-            <span className="text-3xl leading-none transition-transform duration-200 group-hover:scale-110">
-              {emoji}
-            </span>
-            <span className="px-2 text-center text-[13px] font-semibold text-[var(--color-ink)] group-hover:text-[var(--color-honey)]">
+            {/* TODO: add category image */}
+            <div className="flex h-[90px] w-full items-center justify-center rounded-lg bg-white">
+              <span className="text-4xl">{emoji}</span>
+            </div>
+            <span className="text-center text-[11px] font-bold uppercase tracking-wide text-[var(--color-ink)] group-hover:text-[var(--color-coral)]">
               {name}
             </span>
           </Link>
@@ -45,12 +40,12 @@ export function CategoryGrid() {
       </div>
 
       {/* CTA */}
-      <div className="mt-10 flex justify-center">
+      <div className="mt-8 flex justify-center">
         <Link
           href="/shop"
-          className="inline-flex items-center gap-1.5 rounded-full border-2 border-[var(--color-honey)] px-7 py-3 text-[14px] font-semibold text-[var(--color-honey)] transition-all hover:bg-[var(--color-honey)] hover:text-white"
+          className="rounded-full bg-[var(--color-coral)] px-8 py-3 text-[14px] font-bold text-white transition-all hover:bg-[var(--color-coral-dark)]"
         >
-          Shop All Collections <ArrowRight className="h-4 w-4" />
+          SHOP ALL COLLECTIONS
         </Link>
       </div>
     </section>
