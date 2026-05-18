@@ -2,55 +2,72 @@
 
 @import "tailwindcss";
 
-/* ─── Brand Tokens ───────────────────────────────────────────────────────────
-   #E8748A  Coral-pink  → oklch(0.68 0.14 5)   — primary CTA, accents
-   #C6920A  Honey gold  → oklch(0.65 0.14 70)  — logo, secondary accent
-   #FFF5F5  Background  → oklch(0.99 0.006 5)  — page bg
-   #FFF0F0  Light pink  → oklch(0.98 0.01 5)   — topbar, hero bg
-   #FFFFFF  Surface     → oklch(1 0 0)
-   #1A1A1A  Near-black  → oklch(0.13 0 0)
-   #6B6B6B  Secondary   → oklch(0.47 0 0)
+/* ─── Design Tokens ──────────────────────────────────────────────────────────
+   #FFF0F0  --color-bg           very light pink page background
+   #FFFFFF  --color-surface      white cards / header
+   #E8748A  --color-primary      coral-pink CTAs, active states
+   #C85A70  --color-primary-dark coral hover
+   #C6920A  --color-gold         honey gold, logo text only
+   #1A1A1A  --color-black        headings, body text
+   #6B6B6B  --color-gray         secondary text, descriptions
+   #F5F5F5  --color-gray-light   tile backgrounds
+   #EDEDED  --color-border       all borders
+   #FFF0F0  --color-topbar-bg    topbar background
+   #1A1A1A  --color-topbar-text  topbar text
+   #F5C842  --color-gold-banner  HowItWorks number circles
 ───────────────────────────────────────────────────────────────────────────── */
 
 :root {
-  /* ── Brand ── */
-  --color-coral:       oklch(0.68 0.14 5);
-  --color-coral-dark:  oklch(0.56 0.14 5);
-  --color-coral-light: oklch(0.94 0.04 5);
-  --color-honey:       oklch(0.65 0.14 70);
-  --color-honey-dark:  oklch(0.50 0.14 65);
-  --color-background:  oklch(0.99 0.006 5);
-  --color-topbar:      oklch(0.98 0.01 5);
-  --color-surface:     oklch(1 0 0);
-  --color-ink:         oklch(0.13 0 0);
-  --color-secondary:   oklch(0.47 0 0);
-  --color-border:      oklch(0.93 0.006 5);
+  /* ── New canonical tokens ── */
+  --color-bg:           oklch(0.98 0.01 5);
+  --color-surface:      oklch(1 0 0);
+  --color-primary:      oklch(0.68 0.14 5);
+  --color-primary-dark: oklch(0.56 0.14 5);
+  --color-gold:         oklch(0.65 0.14 70);
+  --color-black:        oklch(0.13 0 0);
+  --color-gray:         oklch(0.47 0 0);
+  --color-gray-light:   oklch(0.96 0 0);
+  --color-border:       oklch(0.93 0 0);
+  --color-topbar-bg:    oklch(0.98 0.01 5);
+  --color-topbar-text:  oklch(0.13 0 0);
+  --color-gold-banner:  oklch(0.83 0.14 85);
+
+  /* ── Backwards-compat aliases (used by shop/cart/PDP pages) ── */
+  --color-coral:        var(--color-primary);
+  --color-coral-dark:   var(--color-primary-dark);
+  --color-coral-light:  oklch(0.94 0.04 5);
+  --color-honey:        var(--color-gold);
+  --color-honey-dark:   oklch(0.50 0.14 65);
+  --color-background:   var(--color-bg);
+  --color-topbar:       var(--color-topbar-bg);
+  --color-ink:          var(--color-black);
+  --color-secondary:    var(--color-gray);
 
   /* ── shadcn/ui semantic tokens ── */
-  --background:             var(--color-background);
-  --foreground:             var(--color-ink);
+  --background:             var(--color-bg);
+  --foreground:             var(--color-black);
   --card:                   var(--color-surface);
-  --card-foreground:        var(--color-ink);
+  --card-foreground:        var(--color-black);
   --popover:                var(--color-surface);
-  --popover-foreground:     var(--color-ink);
-  --primary:                var(--color-coral);
+  --popover-foreground:     var(--color-black);
+  --primary:                var(--color-primary);
   --primary-foreground:     oklch(1 0 0);
   --secondary:              oklch(0.96 0.004 5);
-  --secondary-foreground:   var(--color-ink);
+  --secondary-foreground:   var(--color-black);
   --muted:                  oklch(0.97 0.003 5);
-  --muted-foreground:       var(--color-secondary);
+  --muted-foreground:       var(--color-gray);
   --accent:                 oklch(0.96 0.004 5);
-  --accent-foreground:      var(--color-ink);
+  --accent-foreground:      var(--color-black);
   --destructive:            oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.98 0 0);
   --border:                 var(--color-border);
   --input:                  var(--color-border);
-  --ring:                   var(--color-coral);
+  --ring:                   var(--color-primary);
   --radius:                 0.5rem;
 
   /* ── Charts ── */
-  --chart-1: var(--color-coral);
-  --chart-2: var(--color-honey);
+  --chart-1: var(--color-primary);
+  --chart-2: var(--color-gold);
   --chart-3: oklch(0.72 0.12 180);
   --chart-4: oklch(0.55 0.15 240);
   --chart-5: oklch(0.75 0.1 120);
@@ -77,16 +94,26 @@
   --color-input:                  var(--input);
   --color-ring:                   var(--ring);
 
-  /* Brand aliases */
-  --color-coral:       var(--color-coral);
-  --color-coral-dark:  var(--color-coral-dark);
-  --color-coral-light: var(--color-coral-light);
-  --color-honey:       var(--color-honey);
-  --color-honey-dark:  var(--color-honey-dark);
-  --color-topbar:      var(--color-topbar);
-  --color-surface:     var(--color-surface);
-  --color-ink:         var(--color-ink);
-  --color-secondary-text: var(--color-secondary);
+  /* Brand pass-throughs */
+  --color-bg:           var(--color-bg);
+  --color-surface:      var(--color-surface);
+  --color-primary:      var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-gold:         var(--color-gold);
+  --color-black:        var(--color-black);
+  --color-gray:         var(--color-gray);
+  --color-gray-light:   var(--color-gray-light);
+  --color-topbar-bg:    var(--color-topbar-bg);
+  --color-gold-banner:  var(--color-gold-banner);
+
+  /* Compat aliases */
+  --color-coral:        var(--color-coral);
+  --color-coral-dark:   var(--color-coral-dark);
+  --color-coral-light:  var(--color-coral-light);
+  --color-honey:        var(--color-honey);
+  --color-honey-dark:   var(--color-honey-dark);
+  --color-topbar:       var(--color-topbar);
+  --color-ink:          var(--color-ink);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -104,6 +131,7 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

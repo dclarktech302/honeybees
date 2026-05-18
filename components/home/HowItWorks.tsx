@@ -1,73 +1,120 @@
 "use client"
 
-import { useRef } from "react"
-import { motion, useInView } from "motion/react"
 import { ShoppingCart, Upload, Truck } from "lucide-react"
 
 const STEPS = [
   {
     number: 1,
     Icon: ShoppingCart,
-    title: "CHOOSE YOUR PRODUCT & ADD TO CART",
+    label: "CHOOSE YOUR PRODUCT & ADD TO CART",
   },
   {
     number: 2,
     Icon: Upload,
-    title: "UPLOAD YOUR IMAGE OR DESIGN AT CHECKOUT",
+    label: "UPLOAD YOUR IMAGE OR DESIGN AT CHECKOUT",
   },
   {
     number: 3,
     Icon: Truck,
-    title: "WE PRINT, PACK & SHIP YOUR ORDER WITH LOVE!",
+    label: "WE PRINT, PACK & SHIP YOUR ORDER WITH LOVE!",
   },
 ]
 
 export function HowItWorks() {
-  const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: "-80px" })
-
   return (
-    <section className="bg-white py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="mb-14 text-center text-[28px] font-black text-[var(--color-ink)]">
+    <section style={{ backgroundColor: "var(--color-surface)", padding: "64px 0" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 32px" }}>
+        {/* Heading */}
+        <h2
+          className="text-center font-bold"
+          style={{ fontSize: "24px", color: "var(--color-black)", marginBottom: "48px" }}
+        >
           ♥ CUSTOM IS EASY AS 1-2-3! ♥
         </h2>
 
-        <div ref={ref} className="relative flex flex-col gap-8 lg:flex-row lg:items-start">
-          {STEPS.map(({ number, Icon, title }, i) => (
-            <div key={number} className="relative flex flex-1 flex-col items-center text-center">
-
-              {/* Arrow connector (desktop) */}
-              {i < STEPS.length - 1 && (
-                <div
-                  aria-hidden
-                  className="absolute left-[calc(50%+56px)] top-7 hidden text-3xl font-black text-[var(--color-coral)] lg:block"
-                  style={{ transform: "translateY(-50%)" }}
-                >
-                  →
-                </div>
-              )}
-
-              <motion.div
-                initial={{ opacity: 0, y: 28 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: i * 0.18, ease: [0.22, 1, 0.36, 1] }}
-                className="flex flex-col items-center gap-4"
+        {/* Steps row */}
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-center">
+          {STEPS.map(({ number, Icon, label }, i) => (
+            <div key={number} className="flex flex-col md:flex-row items-center">
+              {/* Step */}
+              <div
+                className="flex flex-col items-center text-center"
+                style={{ width: "200px" }}
               >
-                {/* Number circle */}
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-coral)] shadow-md">
-                  <span className="text-xl font-black text-white">{number}</span>
+                {/* Number circle — gold banner background */}
+                <div
+                  className="flex items-center justify-center font-black"
+                  style={{
+                    width: "44px",
+                    height: "44px",
+                    borderRadius: "50%",
+                    backgroundColor: "var(--color-gold-banner)",
+                    color: "var(--color-black)",
+                    fontSize: "20px",
+                    marginBottom: "12px",
+                  }}
+                >
+                  {number}
                 </div>
 
                 {/* Icon */}
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-[var(--color-coral-light)] bg-[var(--color-topbar)]">
-                  <Icon className="h-5 w-5 text-[var(--color-coral)]" strokeWidth={1.75} />
-                </div>
+                <Icon
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    color: "var(--color-black)",
+                    marginBottom: "32px",
+                  }}
+                />
 
-                <p className="max-w-[200px] text-[13px] font-bold uppercase tracking-wide text-[var(--color-ink)]">
-                  {title}
+                {/* Label */}
+                <p
+                  className="font-bold uppercase"
+                  style={{
+                    fontSize: "12px",
+                    color: "var(--color-black)",
+                    letterSpacing: "0.04em",
+                    lineHeight: 1.4,
+                    maxWidth: "160px",
+                  }}
+                >
+                  {label}
                 </p>
-              </motion.div>
+              </div>
+
+              {/* Desktop arrow */}
+              {i < STEPS.length - 1 && (
+                <span
+                  className="hidden md:block"
+                  style={{
+                    fontSize: "28px",
+                    color: "var(--color-primary)",
+                    alignSelf: "flex-start",
+                    marginTop: "56px",
+                    padding: "0 16px",
+                    lineHeight: 1,
+                  }}
+                  aria-hidden
+                >
+                  →
+                </span>
+              )}
+
+              {/* Mobile arrow */}
+              {i < STEPS.length - 1 && (
+                <span
+                  className="block md:hidden"
+                  style={{
+                    fontSize: "28px",
+                    color: "var(--color-primary)",
+                    margin: "8px 0",
+                    lineHeight: 1,
+                  }}
+                  aria-hidden
+                >
+                  ↓
+                </span>
+              )}
             </div>
           ))}
         </div>
