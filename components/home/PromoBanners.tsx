@@ -2,14 +2,18 @@ import Link from "next/link"
 
 export function PromoBanners() {
   return (
-    <section>
+    <section style={{ backgroundColor: "var(--color-cream)", padding: "24px 0" }}>
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          gap: "12px",
+          padding: "0 24px",
+          maxWidth: "1200px",
+          margin: "0 auto",
           width: "100%",
         }}
-        className="sm:grid-cols-4"
+        className="lg:grid-cols-4 md:grid-cols-2"
       >
         {/* Panel 1 — Black / Custom Order */}
         <div
@@ -18,6 +22,7 @@ export function PromoBanners() {
             backgroundColor: "#1A1A1A",
             minHeight: "220px",
             padding: "28px 24px",
+            borderRadius: "16px",
           }}
         >
           <p
@@ -83,12 +88,13 @@ export function PromoBanners() {
 
         {/* Panel 2 — White / Free Shipping */}
         <div
-          className="flex flex-col items-center justify-center text-center"
+          className="flex flex-col items-center justify-center text-center overflow-hidden"
           style={{
             backgroundColor: "white",
             border: "1px solid var(--color-border)",
             minHeight: "220px",
             padding: "28px 24px",
+            borderRadius: "16px",
           }}
         >
           <p
@@ -124,45 +130,22 @@ export function PromoBanners() {
 
         {/* Panel 3 — Warm pink / Be Kind */}
         <div
-          className="flex flex-col items-center justify-center text-center"
+          className="flex flex-col items-center justify-center text-center overflow-hidden"
           style={{
             backgroundColor: "#FFF0E8",
             minHeight: "220px",
             padding: "28px 24px",
             gap: "4px",
+            borderRadius: "16px",
           }}
         >
-          <p
-            style={{
-              fontFamily: "var(--font-montserrat)",
-              fontSize: "30px",
-              fontWeight: 900,
-              color: "var(--color-primary)",
-              lineHeight: 1.1,
-            }}
-          >
+          <p style={{ fontFamily: "var(--font-montserrat)", fontSize: "30px", fontWeight: 900, color: "var(--color-primary)", lineHeight: 1.1 }}>
             🌸 BE KIND
           </p>
-          <p
-            style={{
-              fontFamily: "var(--font-montserrat)",
-              fontSize: "30px",
-              fontWeight: 900,
-              color: "var(--color-black)",
-              lineHeight: 1.1,
-            }}
-          >
+          <p style={{ fontFamily: "var(--font-montserrat)", fontSize: "30px", fontWeight: 900, color: "var(--color-black)", lineHeight: 1.1 }}>
             🌻 BE HAPPY
           </p>
-          <p
-            style={{
-              fontFamily: "var(--font-montserrat)",
-              fontSize: "30px",
-              fontWeight: 900,
-              color: "var(--color-primary)",
-              lineHeight: 1.1,
-            }}
-          >
+          <p style={{ fontFamily: "var(--font-montserrat)", fontSize: "30px", fontWeight: 900, color: "var(--color-primary)", lineHeight: 1.1 }}>
             🐝 BE YOU
           </p>
           {/* TODO: floral/bee decoration bottom right */}
@@ -170,43 +153,22 @@ export function PromoBanners() {
 
         {/* Panel 4 — White / Thank You */}
         <div
-          className="flex flex-col items-center justify-center text-center"
+          className="flex flex-col items-center justify-center text-center overflow-hidden"
           style={{
             backgroundColor: "white",
             border: "1px solid var(--color-border)",
             minHeight: "220px",
             padding: "28px 24px",
+            borderRadius: "16px",
           }}
         >
-          <p
-            style={{
-              fontFamily: "var(--font-pacifico)",
-              fontSize: "28px",
-              color: "var(--color-primary)",
-              marginBottom: "8px",
-            }}
-          >
+          <p style={{ fontFamily: "var(--font-pacifico)", fontSize: "28px", color: "var(--color-primary)", marginBottom: "8px" }}>
             💛 THANK YOU!
           </p>
-          <p
-            style={{
-              fontFamily: "var(--font-inter)",
-              fontSize: "14px",
-              color: "var(--color-black)",
-              marginBottom: "2px",
-            }}
-          >
+          <p style={{ fontFamily: "var(--font-inter)", fontSize: "14px", color: "var(--color-black)", marginBottom: "2px" }}>
             for supporting my
           </p>
-          <p
-            style={{
-              fontFamily: "var(--font-inter)",
-              fontSize: "14px",
-              fontWeight: 600,
-              color: "var(--color-black)",
-              marginBottom: "16px",
-            }}
-          >
+          <p style={{ fontFamily: "var(--font-inter)", fontSize: "14px", fontWeight: 600, color: "var(--color-black)", marginBottom: "16px" }}>
             small business!
           </p>
           {/* TODO: replace with bee + heart illustration */}
