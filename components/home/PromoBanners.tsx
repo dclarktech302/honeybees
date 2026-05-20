@@ -1,102 +1,179 @@
 import Link from "next/link"
-import { Truck } from "lucide-react"
 
 export function PromoBanners() {
   return (
-    <section>
-      <div className="grid grid-cols-2 lg:grid-cols-4">
-
-        {/* Panel 1 — Custom Order */}
+    <section style={{ backgroundColor: "var(--color-cream)", padding: "24px 0" }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          gap: "12px",
+          padding: "0 24px",
+          maxWidth: "1200px",
+          margin: "0 auto",
+          width: "100%",
+        }}
+        className="lg:grid-cols-4 md:grid-cols-2"
+      >
+        {/* Panel 1 — Black / Custom Order */}
         <div
-          className="flex flex-col justify-between"
+          className="flex flex-col justify-center relative overflow-hidden"
           style={{
-            backgroundColor: "var(--color-black)",
-            padding: "28px 24px",
+            backgroundColor: "#1A1A1A",
             minHeight: "220px",
+            padding: "28px 24px",
+            borderRadius: "16px",
           }}
         >
-          <div>
-            <p className="font-bold text-white" style={{ fontSize: "18px", lineHeight: 1.2 }}>
-              NEED SOMETHING
-            </p>
-            <p
-              className="font-black"
-              style={{ fontSize: "28px", fontWeight: 900, color: "var(--color-primary)", lineHeight: 1.1 }}
-            >
-              CUSTOM?
-            </p>
-            <p className="font-bold text-white" style={{ fontSize: "14px", marginTop: "4px" }}>
-              WE&apos;VE GOT YOU!
-            </p>
-          </div>
-          {/* TODO: bee mascot illustration holding heart */}
+          <p
+            style={{
+              fontFamily: "var(--font-montserrat)",
+              fontSize: "15px",
+              fontWeight: 700,
+              color: "white",
+              textTransform: "uppercase",
+              marginBottom: "2px",
+            }}
+          >
+            🐝 NEED SOMETHING
+          </p>
+          <p
+            style={{
+              fontFamily: "var(--font-montserrat)",
+              fontSize: "32px",
+              fontWeight: 900,
+              color: "var(--color-primary)",
+              textTransform: "uppercase",
+              lineHeight: 1,
+              marginBottom: "4px",
+            }}
+          >
+            CUSTOM?
+          </p>
+          <p
+            style={{
+              fontFamily: "var(--font-montserrat)",
+              fontSize: "13px",
+              fontWeight: 600,
+              color: "white",
+              marginBottom: "20px",
+            }}
+          >
+            WE&apos;VE GOT YOU!
+          </p>
           <Link
             href="/contact"
-            className="font-bold text-white inline-block transition-colors hover:bg-[var(--color-primary-dark)]"
+            className="transition-colors hover:bg-[var(--color-primary-dark)]"
             style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
               backgroundColor: "var(--color-primary)",
-              padding: "8px 18px",
+              color: "white",
+              fontFamily: "var(--font-montserrat)",
+              fontSize: "11px",
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: "0.06em",
+              padding: "9px 20px",
               borderRadius: "9999px",
-              fontSize: "12px",
-              marginTop: "48px",
               textDecoration: "none",
               alignSelf: "flex-start",
             }}
           >
             CUSTOM ORDER →
           </Link>
+          {/* TODO: bee mascot illustration — position absolute, right 0, bottom 0, height 90% */}
         </div>
 
-        {/* Panel 2 — Free Shipping */}
+        {/* Panel 2 — White / Free Shipping */}
         <div
-          className="flex flex-col items-center justify-center text-center"
+          className="flex flex-col items-center justify-center text-center overflow-hidden"
           style={{
-            backgroundColor: "var(--color-surface)",
+            backgroundColor: "white",
             border: "1px solid var(--color-border)",
-            padding: "28px 24px",
             minHeight: "220px",
+            padding: "28px 24px",
+            borderRadius: "16px",
           }}
         >
-          <p className="font-black" style={{ fontSize: "22px", fontWeight: 900, color: "var(--color-black)" }}>
-            FREE SHIPPING
+          <p
+            style={{
+              fontFamily: "var(--font-montserrat)",
+              fontSize: "22px",
+              fontWeight: 900,
+              color: "var(--color-black)",
+              textTransform: "uppercase",
+              marginBottom: "4px",
+            }}
+          >
+            🚚 FREE SHIPPING
           </p>
-          <p className="font-black" style={{ fontSize: "26px", fontWeight: 900, color: "var(--color-primary)" }}>
+          <p
+            style={{
+              fontFamily: "var(--font-montserrat)",
+              fontSize: "26px",
+              fontWeight: 900,
+              color: "var(--color-primary)",
+              textTransform: "uppercase",
+              lineHeight: 1,
+              marginBottom: "20px",
+            }}
+          >
             ON ORDERS $75+
           </p>
-          {/* TODO: pink delivery truck illustration */}
-          <Truck style={{ width: "48px", height: "48px", color: "var(--color-primary)", marginTop: "32px" }} />
+          {/* TODO: replace with pink delivery truck illustration */}
+          <span style={{ fontSize: "52px", color: "var(--color-primary)", opacity: 0.5, lineHeight: 1 }}>
+            🚚
+          </span>
         </div>
 
-        {/* Panel 3 — Be Kind */}
+        {/* Panel 3 — Warm pink / Be Kind */}
         <div
-          className="flex flex-col items-center justify-center text-center"
-          style={{ backgroundColor: "#FFF0F0", padding: "28px 24px", minHeight: "220px" }}
-        >
-          {/* TODO: floral/bee decoration */}
-          <p className="font-black" style={{ fontSize: "28px", fontWeight: 900, color: "var(--color-primary)", lineHeight: 1.1 }}>BE KIND</p>
-          <p className="font-black" style={{ fontSize: "28px", fontWeight: 900, color: "var(--color-black)", lineHeight: 1.1 }}>BE HAPPY</p>
-          <p className="font-black" style={{ fontSize: "28px", fontWeight: 900, color: "var(--color-primary)", lineHeight: 1.1 }}>BE YOU</p>
-        </div>
-
-        {/* Panel 4 — Thank You */}
-        <div
-          className="flex flex-col items-center justify-center text-center"
+          className="flex flex-col items-center justify-center text-center overflow-hidden"
           style={{
-            backgroundColor: "var(--color-surface)",
-            border: "1px solid var(--color-border)",
-            padding: "28px 24px",
+            backgroundColor: "#FFF0E8",
             minHeight: "220px",
+            padding: "28px 24px",
+            gap: "4px",
+            borderRadius: "16px",
           }}
         >
-          {/* TODO: bee + heart illustration */}
-          <p style={{ fontSize: "28px", fontWeight: 700, fontStyle: "italic", color: "var(--color-primary)" }}>
-            THANK YOU!
+          <p style={{ fontFamily: "var(--font-montserrat)", fontSize: "30px", fontWeight: 900, color: "var(--color-primary)", lineHeight: 1.1 }}>
+            🌸 BE KIND
           </p>
-          <p style={{ fontSize: "14px", color: "var(--color-black)" }}>for supporting my</p>
-          <p style={{ fontSize: "14px", fontWeight: 700, color: "var(--color-black)" }}>small business!</p>
-          <span style={{ fontSize: "20px", color: "var(--color-primary)", marginTop: "32px", display: "block" }}>♥</span>
+          <p style={{ fontFamily: "var(--font-montserrat)", fontSize: "30px", fontWeight: 900, color: "var(--color-black)", lineHeight: 1.1 }}>
+            🌻 BE HAPPY
+          </p>
+          <p style={{ fontFamily: "var(--font-montserrat)", fontSize: "30px", fontWeight: 900, color: "var(--color-primary)", lineHeight: 1.1 }}>
+            🐝 BE YOU
+          </p>
+          {/* TODO: floral/bee decoration bottom right */}
         </div>
 
+        {/* Panel 4 — White / Thank You */}
+        <div
+          className="flex flex-col items-center justify-center text-center overflow-hidden"
+          style={{
+            backgroundColor: "white",
+            border: "1px solid var(--color-border)",
+            minHeight: "220px",
+            padding: "28px 24px",
+            borderRadius: "16px",
+          }}
+        >
+          <p style={{ fontFamily: "var(--font-pacifico)", fontSize: "28px", color: "var(--color-primary)", marginBottom: "8px" }}>
+            💛 THANK YOU!
+          </p>
+          <p style={{ fontFamily: "var(--font-inter)", fontSize: "14px", color: "var(--color-black)", marginBottom: "2px" }}>
+            for supporting my
+          </p>
+          <p style={{ fontFamily: "var(--font-inter)", fontSize: "14px", fontWeight: 600, color: "var(--color-black)", marginBottom: "16px" }}>
+            small business!
+          </p>
+          {/* TODO: replace with bee + heart illustration */}
+          <span style={{ fontSize: "32px", lineHeight: 1 }}>🌻</span>
+        </div>
       </div>
     </section>
   )

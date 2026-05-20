@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Inter, Montserrat, Pacifico } from "next/font/google"
 import "./globals.css"
 import { TopBar } from "@/components/layout/TopBar"
 import { Header } from "@/components/layout/Header"
@@ -10,6 +10,20 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+})
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800", "900"],
+})
+
+const pacifico = Pacifico({
+  subsets: ["latin"],
+  variable: "--font-pacifico",
+  display: "swap",
+  weight: "400",
 })
 
 export const metadata: Metadata = {
@@ -42,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+    <html lang="en" className={`${inter.variable} ${montserrat.variable} ${pacifico.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-[var(--color-cream)] text-[var(--color-ink)]">
         <TopBar />
         <Header />

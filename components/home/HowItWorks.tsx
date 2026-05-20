@@ -1,21 +1,19 @@
 "use client"
 
-import { ShoppingCart, Upload, Truck } from "lucide-react"
-
 const STEPS = [
   {
     number: 1,
-    Icon: ShoppingCart,
+    emoji: "🛒",
     label: "CHOOSE YOUR PRODUCT & ADD TO CART",
   },
   {
     number: 2,
-    Icon: Upload,
+    emoji: "☁️",
     label: "UPLOAD YOUR IMAGE OR DESIGN AT CHECKOUT",
   },
   {
     number: 3,
-    Icon: Truck,
+    emoji: "🚚",
     label: "WE PRINT, PACK & SHIP YOUR ORDER WITH LOVE!",
   },
 ]
@@ -27,28 +25,33 @@ export function HowItWorks() {
         {/* Heading */}
         <h2
           className="text-center font-bold"
-          style={{ fontSize: "24px", color: "var(--color-black)", marginBottom: "48px" }}
+          style={{
+            fontSize: "24px",
+            color: "var(--color-black)",
+            marginBottom: "48px",
+            fontFamily: "var(--font-montserrat)",
+          }}
         >
-          ♥ CUSTOM IS EASY AS 1-2-3! ♥
+          🤍 CUSTOM IS EASY AS 1-2-3! 🤍
         </h2>
 
         {/* Steps row */}
         <div className="flex flex-col md:flex-row items-center md:items-start justify-center">
-          {STEPS.map(({ number, Icon, label }, i) => (
+          {STEPS.map(({ number, emoji, label }, i) => (
             <div key={number} className="flex flex-col md:flex-row items-center">
               {/* Step */}
               <div
                 className="flex flex-col items-center text-center"
                 style={{ width: "200px" }}
               >
-                {/* Number circle — gold banner background */}
+                {/* Number circle — honey yellow */}
                 <div
                   className="flex items-center justify-center font-black"
                   style={{
                     width: "44px",
                     height: "44px",
                     borderRadius: "50%",
-                    backgroundColor: "var(--color-gold-banner)",
+                    backgroundColor: "var(--color-honey-yellow)",
                     color: "var(--color-black)",
                     fontSize: "20px",
                     marginBottom: "12px",
@@ -57,15 +60,16 @@ export function HowItWorks() {
                   {number}
                 </div>
 
-                {/* Icon */}
-                <Icon
+                {/* Emoji icon */}
+                <span
                   style={{
-                    width: "32px",
-                    height: "32px",
-                    color: "var(--color-black)",
+                    fontSize: "32px",
                     marginBottom: "32px",
+                    lineHeight: 1,
                   }}
-                />
+                >
+                  {emoji}
+                </span>
 
                 {/* Label */}
                 <p
@@ -76,6 +80,7 @@ export function HowItWorks() {
                     letterSpacing: "0.04em",
                     lineHeight: 1.4,
                     maxWidth: "160px",
+                    fontFamily: "var(--font-montserrat)",
                   }}
                 >
                   {label}
