@@ -96,22 +96,29 @@ export function Header() {
         {/* Center: Logo */}
         <div className="flex justify-center">
           <Link href="/" className="flex flex-col items-center leading-none" aria-label="HoneyBee Designs home">
-            {/* TODO: swap with real logo PNG from Drive */}
-            {/* <img src="/images/logo.png" height="70" alt="HoneyBee Designs" /> */}
+            {/* TODO: swap with real logo PNG: <img src="/images/logo.png" height="70" alt="HoneyBee Designs" /> */}
             <span
-              className="block font-black tracking-tight"
-              style={{ fontSize: "28px", color: "var(--color-gold)" }}
+              style={{
+                fontFamily: "var(--font-pacifico)",
+                fontSize: "28px",
+                color: "var(--color-sunflower)",
+                display: "block",
+                letterSpacing: "1px",
+                lineHeight: 1.1,
+              }}
             >
-              HONEYBEE
+              HoneyBee
             </span>
             <span
-              className="block italic tracking-widest"
               style={{
-                fontSize: "20px",
+                fontFamily: "var(--font-montserrat)",
+                fontSize: "13px",
                 fontWeight: 400,
                 color: "var(--color-black)",
-                marginTop: "-4px",
+                fontStyle: "italic",
                 display: "block",
+                marginTop: "-2px",
+                letterSpacing: "0.1em",
               }}
             >
               designs
@@ -149,7 +156,7 @@ export function Header() {
                 style={{
                   width: "16px",
                   height: "16px",
-                  backgroundColor: "#3B82F6",
+                  backgroundColor: "var(--color-primary)",
                 }}
               >
                 {itemCount > 9 ? "9+" : itemCount}
@@ -171,19 +178,34 @@ export function Header() {
         >
           {NAV_LINKS.map((link) => {
             const active = pathname === link.href
+            const isHome = link.href === "/"
             return (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={cn(
-                    "relative inline-block py-0 text-[12px] font-medium tracking-[0.05em] uppercase transition-colors whitespace-nowrap",
-                    link.sale
-                      ? "text-[var(--color-primary)]"
+                  className="relative inline-block whitespace-nowrap transition-colors"
+                  style={{
+                    fontFamily: "var(--font-montserrat)",
+                    fontSize: "12px",
+                    fontWeight: link.sale ? 700 : 500,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.06em",
+                    color: link.sale || isHome
+                      ? "var(--color-sunflower)"
                       : active
-                      ? "text-[var(--color-primary)]"
-                      : "text-[var(--color-black)] hover:text-[var(--color-primary)]",
-                    active && "after:absolute after:bottom-[-10px] after:left-0 after:right-0 after:h-0.5 after:rounded-full after:bg-[var(--color-primary)] after:content-['']"
-                  )}
+                      ? "var(--color-sunflower)"
+                      : "var(--color-black)",
+                    borderBottom: (active || isHome) ? "2px solid var(--color-sunflower)" : undefined,
+                    paddingBottom: (active || isHome) ? "2px" : undefined,
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!link.sale && !isHome && !active)
+                      (e.currentTarget as HTMLAnchorElement).style.color = "var(--color-primary)"
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!link.sale && !isHome && !active)
+                      (e.currentTarget as HTMLAnchorElement).style.color = "var(--color-black)"
+                  }}
                 >
                   {link.label}
                 </Link>
@@ -218,14 +240,14 @@ export function Header() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={cn(
-                    "block rounded-lg px-3 py-2.5 text-[13px] font-medium tracking-wide uppercase transition-colors",
-                    link.sale
-                      ? "text-[var(--color-primary)]"
-                      : pathname === link.href
-                      ? "text-[var(--color-primary)]"
-                      : "text-[var(--color-black)] hover:bg-[var(--color-topbar-bg)]"
-                  )}
+                  className="block rounded-lg px-3 py-2.5 text-[13px] uppercase tracking-wide transition-colors"
+                  style={{
+                    fontFamily: "var(--font-montserrat)",
+                    fontWeight: 500,
+                    color: link.sale || pathname === link.href
+                      ? "var(--color-sunflower)"
+                      : "var(--color-black)",
+                  }}
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}

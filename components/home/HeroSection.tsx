@@ -10,13 +10,13 @@ export function HeroSection() {
     <section
       className="relative w-full overflow-hidden"
       style={{
-        backgroundColor: "var(--color-surface)",
-        minHeight: "420px",
+        backgroundColor: "#FFFFFF",
+        minHeight: "480px",
       }}
     >
       <div
         className="flex flex-col md:flex-row"
-        style={{ minHeight: "420px" }}
+        style={{ minHeight: "480px" }}
       >
         {/* ── Left (~42%) ── */}
         <div
@@ -31,20 +31,21 @@ export function HeroSection() {
           }}
         >
           {/* Eyebrow pill with floating hearts */}
-          <div className="relative inline-block mb-3" style={{ alignSelf: "flex-start" }}>
+          <div className="relative inline-block mb-4" style={{ alignSelf: "flex-start" }}>
             <span
-              className="inline-block font-bold text-white"
+              className="inline-block text-white"
               style={{
                 backgroundColor: "var(--color-primary)",
                 borderRadius: "9999px",
                 padding: "4px 14px",
+                fontFamily: "var(--font-montserrat)",
                 fontSize: "11px",
+                fontWeight: 700,
                 letterSpacing: "0.05em",
               }}
             >
               MADE JUST FOR YOU!
             </span>
-            {/* Floating mini-hearts */}
             <span
               aria-hidden
               className="absolute"
@@ -66,10 +67,10 @@ export function HeroSection() {
             <span
               className="block"
               style={{
-                fontSize: "clamp(32px, 4vw, 48px)",
+                fontFamily: "var(--font-montserrat)",
+                fontSize: "clamp(26px, 3vw, 42px)",
                 fontWeight: 800,
                 color: "var(--color-black)",
-                fontFamily: "var(--font-montserrat)",
               }}
             >
               Cute. Custom.
@@ -77,12 +78,12 @@ export function HeroSection() {
             <span
               className="block"
               style={{
-                fontSize: "clamp(56px, 8vw, 96px)",
+                fontFamily: "var(--font-montserrat)",
+                fontSize: "clamp(72px, 10vw, 120px)",
                 fontWeight: 900,
                 color: "var(--color-primary)",
-                letterSpacing: "-0.02em",
-                lineHeight: 1,
-                fontFamily: "var(--font-montserrat)",
+                letterSpacing: "-0.03em",
+                lineHeight: 0.9,
               }}
             >
               MADE
@@ -90,10 +91,10 @@ export function HeroSection() {
             <span
               className="block"
               style={{
-                fontSize: "clamp(28px, 3.5vw, 42px)",
+                fontFamily: "var(--font-montserrat)",
+                fontSize: "clamp(22px, 2.8vw, 38px)",
                 fontWeight: 800,
                 color: "var(--color-black)",
-                fontFamily: "var(--font-montserrat)",
               }}
             >
               TO MAKE YOU
@@ -101,10 +102,10 @@ export function HeroSection() {
             <span
               className="block"
               style={{
-                fontSize: "clamp(36px, 5vw, 56px)",
+                fontFamily: "var(--font-montserrat)",
+                fontSize: "clamp(30px, 4vw, 52px)",
                 fontWeight: 900,
                 color: "var(--color-primary)",
-                fontFamily: "var(--font-montserrat)",
               }}
             >
               SMILE! 🤍 🤍
@@ -112,15 +113,23 @@ export function HeroSection() {
           </h1>
 
           {/* CTA */}
-          <div style={{ marginTop: "24px" }}>
+          <div style={{ marginTop: "28px" }}>
             <Link
               href="/shop"
-              className="inline-flex items-center gap-1.5 font-semibold text-white transition-colors hover:bg-[var(--color-primary)]"
+              className="inline-flex items-center gap-1.5 text-white transition-colors"
               style={{
                 backgroundColor: "var(--color-black)",
-                padding: "12px 28px",
+                padding: "13px 32px",
                 borderRadius: "9999px",
+                fontFamily: "var(--font-montserrat)",
                 fontSize: "14px",
+                fontWeight: 700,
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "var(--color-primary)"
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "var(--color-black)"
               }}
             >
               SHOP NOW 🤍
@@ -133,7 +142,7 @@ export function HeroSection() {
           className="relative flex items-center justify-center"
           style={{
             flex: "0 0 58%",
-            backgroundColor: "var(--color-cream)",
+            background: "linear-gradient(135deg, #FFF7E6, #FFF0E0)",
             overflow: "hidden",
             minHeight: "380px",
           }}
@@ -238,21 +247,23 @@ export function HeroSection() {
               style={{
                 width: "90%",
                 height: "380px",
-                backgroundColor: "#FFF5F5",
-                color: "var(--color-gray)",
-                fontSize: "13px",
                 gap: "8px",
               }}
             >
-              <span style={{ fontSize: "32px" }}>🐝</span>
-              <p style={{ fontWeight: 600 }}>Product photos coming soon!</p>
-              <p style={{ fontSize: "11px" }}>
-                7 image slots ready · tumbler · pillow · keychain · mug · 3 florals
+              <span style={{ fontSize: "48px" }}>🐝</span>
+              <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 600, fontSize: "14px", color: "var(--color-black)" }}>
+                Product photos coming from Sarah!
+              </p>
+              <p style={{ fontFamily: "var(--font-inter)", fontSize: "11px", color: "var(--color-gray)" }}>
+                7 image slots ready
+              </p>
+              <p style={{ fontFamily: "var(--font-inter)", fontSize: "11px", color: "var(--color-gray)" }}>
+                tumbler · pillow · keychain · mug · 3 florals
               </p>
             </div>
           )}
 
-          {/* Floating circle badge — top right of collage */}
+          {/* Floating circle badge — top right */}
           <div
             className="absolute flex flex-col items-center justify-center text-center text-white"
             style={{
@@ -265,10 +276,10 @@ export function HeroSection() {
               padding: "12px",
             }}
           >
-            <span style={{ fontSize: "13px", fontWeight: 800, lineHeight: 1.2 }}>CUSTOM</span>
-            <span style={{ fontSize: "11px", lineHeight: 1.2 }}>DESIGNS,</span>
-            <span style={{ fontSize: "10px", lineHeight: 1.2 }}>NAMES, PHOTOS</span>
-            <span style={{ fontSize: "11px", fontWeight: 700, lineHeight: 1.2 }}>&amp; MORE!</span>
+            <span style={{ fontFamily: "var(--font-montserrat)", fontSize: "13px", fontWeight: 800, lineHeight: 1.2 }}>CUSTOM</span>
+            <span style={{ fontFamily: "var(--font-montserrat)", fontSize: "11px", lineHeight: 1.2 }}>DESIGNS,</span>
+            <span style={{ fontFamily: "var(--font-montserrat)", fontSize: "10px", lineHeight: 1.2 }}>NAMES, PHOTOS</span>
+            <span style={{ fontFamily: "var(--font-montserrat)", fontSize: "11px", fontWeight: 700, lineHeight: 1.2 }}>&amp; MORE!</span>
           </div>
         </div>
       </div>

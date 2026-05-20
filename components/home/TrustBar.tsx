@@ -1,31 +1,26 @@
 const ITEMS = [
   {
     icon: "🤍",
-    iconColor: "var(--color-primary)",
     title: "MADE WITH LOVE",
     desc: "Every item is crafted with so much care!",
   },
   {
     icon: "📦",
-    iconColor: "var(--color-gold)",
     title: "PACKED WITH CARE",
     desc: "Your order is packed with extra love!",
   },
   {
     icon: "🚚",
-    iconColor: "var(--color-primary)",
     title: "SHIPPED WITH SMILES",
     desc: "Fast, reliable shipping straight to you!",
   },
   {
     icon: "🚚",
-    iconColor: "var(--color-primary)",
     title: "FREE SHIPPING ON ORDERS $75+",
     desc: "Because you deserve it!",
   },
   {
     icon: "⭐",
-    iconColor: "#F5C842",
     title: "5,000+ HAPPY CUSTOMERS",
     desc: "Thank you for supporting my small business!",
   },
@@ -38,37 +33,52 @@ export function TrustBar() {
       style={{
         backgroundColor: "var(--color-surface)",
         borderColor: "var(--color-border)",
-        padding: "20px 0",
+        padding: "12px 0",
       }}
     >
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 16px" }}>
         <div
-          className="grid grid-cols-2 lg:grid-cols-5"
-          style={{ gap: "0" }}
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(5, 1fr)",
+          }}
         >
           {ITEMS.map(({ icon, title, desc }, i) => (
             <div
               key={title}
               className="flex flex-col items-center text-center"
               style={{
-                padding: "8px 12px",
+                padding: "12px 8px",
                 borderRight: i < ITEMS.length - 1 ? "1px solid var(--color-border)" : undefined,
               }}
             >
               <span
-                className="leading-none mb-1"
-                style={{ fontSize: "24px" }}
+                style={{ fontSize: "20px", display: "block", marginBottom: "6px", lineHeight: 1 }}
               >
                 {icon}
               </span>
               <p
-                className="font-bold"
-                style={{ fontSize: "12px", color: "var(--color-black)" }}
+                style={{
+                  fontFamily: "var(--font-montserrat)",
+                  fontSize: "11px",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.04em",
+                  color: "var(--color-black)",
+                  marginBottom: "3px",
+                }}
               >
                 {title}
               </p>
               <p
-                style={{ fontSize: "11px", color: "var(--color-gray)", lineHeight: 1.4 }}
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: "10px",
+                  color: "var(--color-gray)",
+                  lineHeight: 1.4,
+                  maxWidth: "130px",
+                  margin: "0 auto",
+                }}
               >
                 {desc}
               </p>

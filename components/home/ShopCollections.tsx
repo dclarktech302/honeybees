@@ -41,12 +41,18 @@ const COLLECTIONS = [
 
 export function ShopCollections() {
   return (
-    <section style={{ backgroundColor: "var(--color-bg)", padding: "48px 0" }}>
+    <section style={{ backgroundColor: "var(--color-cream)", padding: "48px 0" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 32px" }}>
         {/* Heading */}
         <h2
-          className="text-center font-bold"
-          style={{ fontSize: "24px", color: "var(--color-black)", marginBottom: "32px", fontFamily: "var(--font-montserrat)" }}
+          className="text-center"
+          style={{
+            fontFamily: "var(--font-montserrat)",
+            fontSize: "22px",
+            fontWeight: 800,
+            color: "var(--color-black)",
+            marginBottom: "32px",
+          }}
         >
           🤍 SHOP OUR COLLECTIONS 🤍
         </h2>
@@ -57,7 +63,7 @@ export function ShopCollections() {
             <Link
               key={handle}
               href={`/shop/${handle}`}
-              className="block overflow-hidden relative transition-transform duration-[250ms] hover:scale-[1.03]"
+              className="block overflow-hidden relative transition-transform duration-[250ms] hover:scale-[1.04]"
               style={{
                 aspectRatio: "1/1",
                 borderRadius: "12px",
@@ -77,17 +83,18 @@ export function ShopCollections() {
               <div
                 className="absolute bottom-0 left-0 right-0 text-center"
                 style={{
-                  background: "linear-gradient(transparent, rgba(0,0,0,0.6))",
+                  background: "linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.72) 100%)",
                   padding: "20px 8px 8px",
                 }}
               >
                 <span
                   style={{
+                    fontFamily: "var(--font-montserrat)",
                     color: "white",
-                    fontSize: "12px",
+                    fontSize: "11px",
                     fontWeight: 700,
                     textTransform: "uppercase",
-                    letterSpacing: "0.05em",
+                    letterSpacing: "0.06em",
                   }}
                 >
                   {name}

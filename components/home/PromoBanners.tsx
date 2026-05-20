@@ -16,27 +16,40 @@ export function PromoBanners() {
           }}
         >
           <div>
-            <p className="font-bold text-white" style={{ fontSize: "18px", lineHeight: 1.2 }}>
+            <p
+              className="text-white"
+              style={{ fontFamily: "var(--font-montserrat)", fontSize: "18px", fontWeight: 700, lineHeight: 1.2 }}
+            >
               🐝 NEED SOMETHING
             </p>
             <p
-              className="font-black"
-              style={{ fontSize: "28px", fontWeight: 900, color: "var(--color-primary)", lineHeight: 1.1 }}
+              style={{
+                fontFamily: "var(--font-montserrat)",
+                fontSize: "30px",
+                fontWeight: 900,
+                color: "var(--color-primary)",
+                lineHeight: 1.1,
+              }}
             >
               CUSTOM?
             </p>
-            <p className="font-bold text-white" style={{ fontSize: "14px", marginTop: "4px" }}>
+            <p
+              className="text-white"
+              style={{ fontFamily: "var(--font-montserrat)", fontSize: "14px", fontWeight: 600, marginTop: "4px" }}
+            >
               WE&apos;VE GOT YOU!
             </p>
           </div>
           <Link
             href="/contact"
-            className="font-bold text-white inline-block transition-colors hover:bg-[var(--color-primary-dark)]"
+            className="text-white inline-block transition-colors hover:bg-[var(--color-primary-dark)]"
             style={{
               backgroundColor: "var(--color-primary)",
               padding: "8px 18px",
               borderRadius: "9999px",
+              fontFamily: "var(--font-montserrat)",
               fontSize: "12px",
+              fontWeight: 700,
               marginTop: "48px",
               textDecoration: "none",
               alignSelf: "flex-start",
@@ -56,10 +69,14 @@ export function PromoBanners() {
             minHeight: "220px",
           }}
         >
-          <p className="font-black" style={{ fontSize: "22px", fontWeight: 900, color: "var(--color-black)" }}>
+          <p
+            style={{ fontFamily: "var(--font-montserrat)", fontSize: "22px", fontWeight: 900, color: "var(--color-black)" }}
+          >
             🚚 FREE SHIPPING
           </p>
-          <p className="font-black" style={{ fontSize: "26px", fontWeight: 900, color: "var(--color-primary)" }}>
+          <p
+            style={{ fontFamily: "var(--font-montserrat)", fontSize: "26px", fontWeight: 900, color: "var(--color-primary)" }}
+          >
             ON ORDERS $75+
           </p>
           <Truck style={{ width: "48px", height: "48px", color: "var(--color-primary)", marginTop: "32px" }} />
@@ -70,9 +87,21 @@ export function PromoBanners() {
           className="flex flex-col items-center justify-center text-center"
           style={{ backgroundColor: "#FFF0E8", padding: "28px 24px", minHeight: "220px" }}
         >
-          <p className="font-black" style={{ fontSize: "28px", fontWeight: 900, color: "var(--color-primary)", lineHeight: 1.1 }}>🌸 BE KIND</p>
-          <p className="font-black" style={{ fontSize: "28px", fontWeight: 900, color: "var(--color-black)", lineHeight: 1.1 }}>🌻 BE HAPPY</p>
-          <p className="font-black" style={{ fontSize: "28px", fontWeight: 900, color: "var(--color-primary)", lineHeight: 1.1 }}>🐝 BE YOU</p>
+          <p
+            style={{ fontFamily: "var(--font-montserrat)", fontSize: "28px", fontWeight: 900, color: "var(--color-primary)", lineHeight: 1.1 }}
+          >
+            🌸 BE KIND
+          </p>
+          <p
+            style={{ fontFamily: "var(--font-montserrat)", fontSize: "28px", fontWeight: 900, color: "var(--color-black)", lineHeight: 1.1 }}
+          >
+            🌻 BE HAPPY
+          </p>
+          <p
+            style={{ fontFamily: "var(--font-montserrat)", fontSize: "28px", fontWeight: 900, color: "var(--color-primary)", lineHeight: 1.1 }}
+          >
+            🐝 BE YOU
+          </p>
         </div>
 
         {/* Panel 4 — Thank You */}
@@ -85,11 +114,22 @@ export function PromoBanners() {
             minHeight: "220px",
           }}
         >
-          <p style={{ fontSize: "28px", fontWeight: 700, fontStyle: "italic", color: "var(--color-primary)", fontFamily: "var(--font-pacifico)" }}>
+          <p
+            style={{
+              fontFamily: "var(--font-pacifico)",
+              fontSize: "26px",
+              color: "var(--color-primary)",
+              marginBottom: "4px",
+            }}
+          >
             💛 THANK YOU!
           </p>
-          <p style={{ fontSize: "14px", color: "var(--color-black)" }}>for supporting my</p>
-          <p style={{ fontSize: "14px", fontWeight: 700, color: "var(--color-black)" }}>small business!</p>
+          <p style={{ fontFamily: "var(--font-montserrat)", fontSize: "14px", color: "var(--color-black)" }}>
+            for supporting my
+          </p>
+          <p style={{ fontFamily: "var(--font-montserrat)", fontSize: "14px", fontWeight: 700, color: "var(--color-black)" }}>
+            small business!
+          </p>
           <span style={{ fontSize: "20px", marginTop: "32px", display: "block" }}>🌻</span>
         </div>
 

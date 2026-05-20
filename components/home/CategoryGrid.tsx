@@ -31,7 +31,7 @@ function CategoryTile({ name, handle }: { name: string; handle: string }) {
     >
       {/* Image area */}
       <div
-        className="transition-all duration-200 group-hover:border-[var(--color-primary)] group-hover:-translate-y-0.5"
+        className="transition-all duration-200 group-hover:-translate-y-0.5"
         style={{
           width: "120px",
           height: "120px",
@@ -42,6 +42,17 @@ function CategoryTile({ name, handle }: { name: string; handle: string }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          transition: "border-color 0.2s, box-shadow 0.2s, transform 0.2s",
+        }}
+        onMouseEnter={(e) => {
+          const el = e.currentTarget as HTMLDivElement
+          el.style.borderColor = "var(--color-sunflower)"
+          el.style.boxShadow = "0 4px 12px rgba(245,180,0,0.2)"
+        }}
+        onMouseLeave={(e) => {
+          const el = e.currentTarget as HTMLDivElement
+          el.style.borderColor = "var(--color-border)"
+          el.style.boxShadow = "none"
         }}
       >
         {/* TODO: replace with category product image */}
@@ -56,12 +67,13 @@ function CategoryTile({ name, handle }: { name: string; handle: string }) {
         className="group-hover:text-[var(--color-primary)] transition-colors"
         style={{
           marginTop: "8px",
-          fontSize: "12px",
+          fontFamily: "var(--font-montserrat)",
+          fontSize: "11px",
           fontWeight: 600,
           color: "var(--color-black)",
           textAlign: "center",
           textTransform: "uppercase",
-          letterSpacing: "0.03em",
+          letterSpacing: "0.04em",
         }}
       >
         {name}
@@ -72,7 +84,7 @@ function CategoryTile({ name, handle }: { name: string; handle: string }) {
 
 export function CategoryGrid() {
   return (
-    <section style={{ backgroundColor: "var(--color-bg)", padding: "48px 0" }}>
+    <section style={{ backgroundColor: "var(--color-cream)", padding: "48px 0" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
         {/* Heading */}
         <div
@@ -81,7 +93,13 @@ export function CategoryGrid() {
         >
           <h2
             className="font-extrabold text-center"
-            style={{ fontSize: "24px", color: "var(--color-black)", margin: 0, fontFamily: "var(--font-montserrat)" }}
+            style={{
+              fontFamily: "var(--font-montserrat)",
+              fontSize: "22px",
+              fontWeight: 800,
+              color: "var(--color-black)",
+              margin: 0,
+            }}
           >
             🤍 SHOP BY CATEGORY 🤍
           </h2>
@@ -107,14 +125,22 @@ export function CategoryGrid() {
         <div style={{ marginTop: "20px", display: "flex", justifyContent: "center" }}>
           <Link
             href="/shop"
-            className="font-bold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
+            className="text-white transition-colors"
             style={{
               backgroundColor: "var(--color-primary)",
-              padding: "10px 28px",
+              padding: "10px 32px",
               borderRadius: "9999px",
+              fontFamily: "var(--font-montserrat)",
               fontSize: "13px",
-              letterSpacing: "0.05em",
+              fontWeight: 700,
+              letterSpacing: "0.06em",
               textDecoration: "none",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "var(--color-primary-dark)"
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "var(--color-primary)"
             }}
           >
             SHOP ALL COLLECTIONS

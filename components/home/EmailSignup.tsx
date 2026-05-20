@@ -5,7 +5,7 @@ import { useState } from "react"
 const SOCIAL_ICONS = [
   {
     label: "Facebook",
-    href: "#",
+    href: "https://facebook.com/honeybeedesigns",
     bg: "#1877F2",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden>
@@ -15,7 +15,7 @@ const SOCIAL_ICONS = [
   },
   {
     label: "Instagram",
-    href: "#",
+    href: "https://instagram.com/honeybeedesigns",
     bg: "#E1306C",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" width="18" height="18" aria-hidden>
@@ -27,7 +27,7 @@ const SOCIAL_ICONS = [
   },
   {
     label: "TikTok",
-    href: "#",
+    href: "https://tiktok.com/@honeybeedesigns",
     bg: "#000000",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden>
@@ -37,7 +37,7 @@ const SOCIAL_ICONS = [
   },
   {
     label: "Pinterest",
-    href: "#",
+    href: "https://pinterest.com/honeybeedesigns",
     bg: "#E60023",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden>
@@ -95,13 +95,27 @@ export function EmailSignup() {
         >
           {/* Left — email signup */}
           <div style={{ paddingRight: "clamp(0px, 5vw, 48px)" }}>
-            {/* TODO: bee holding envelope illustration */}
-            <div style={{ fontSize: "40px", color: "var(--color-primary)", marginBottom: "16px" }}>✉</div>
+            <div style={{ fontSize: "40px", marginBottom: "16px" }}>✉</div>
 
-            <h2 style={{ fontSize: "20px", fontWeight: 400, color: "var(--color-black)", fontFamily: "var(--font-pacifico)" }}>
+            <h2
+              style={{
+                fontFamily: "var(--font-pacifico)",
+                fontSize: "22px",
+                fontWeight: 400,
+                color: "var(--color-black)",
+              }}
+            >
               🐝 JOIN THE HIVE!
             </h2>
-            <p style={{ fontSize: "13px", color: "var(--color-gray)", marginTop: "8px", marginBottom: "24px" }}>
+            <p
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontSize: "13px",
+                color: "var(--color-gray)",
+                marginTop: "8px",
+                marginBottom: "24px",
+              }}
+            >
               Be the first to know about new arrivals, sales &amp; more! 🌻
             </p>
 
@@ -112,6 +126,7 @@ export function EmailSignup() {
                   backgroundColor: "var(--color-primary)",
                   borderRadius: "9999px",
                   padding: "12px",
+                  fontFamily: "var(--font-montserrat)",
                   fontSize: "14px",
                 }}
               >
@@ -134,6 +149,7 @@ export function EmailSignup() {
                     border: "1px solid var(--color-border)",
                     borderRadius: "9999px",
                     padding: "10px 18px",
+                    fontFamily: "var(--font-inter)",
                     fontSize: "13px",
                   }}
                   onFocus={(e) => { e.currentTarget.style.borderColor = "var(--color-primary)" }}
@@ -142,12 +158,14 @@ export function EmailSignup() {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="font-bold text-white transition-colors disabled:opacity-60"
+                  className="text-white transition-colors disabled:opacity-60"
                   style={{
                     backgroundColor: "var(--color-primary)",
                     padding: "10px 20px",
                     borderRadius: "9999px",
+                    fontFamily: "var(--font-montserrat)",
                     fontSize: "13px",
+                    fontWeight: 700,
                     marginLeft: "8px",
                     border: "none",
                     cursor: "pointer",
@@ -162,7 +180,7 @@ export function EmailSignup() {
             )}
 
             {status === "error" && (
-              <p style={{ marginTop: "8px", fontSize: "12px", color: "#ef4444" }}>
+              <p style={{ marginTop: "8px", fontFamily: "var(--font-inter)", fontSize: "12px", color: "#ef4444" }}>
                 Something went wrong. Please try again!
               </p>
             )}
@@ -178,6 +196,7 @@ export function EmailSignup() {
           >
             <p
               style={{
+                fontFamily: "var(--font-montserrat)",
                 fontSize: "13px",
                 fontWeight: 700,
                 letterSpacing: "0.08em",
@@ -197,8 +216,8 @@ export function EmailSignup() {
                   aria-label={label}
                   className="flex items-center justify-center text-white transition-all"
                   style={{
-                    width: "36px",
-                    height: "36px",
+                    width: "38px",
+                    height: "38px",
                     borderRadius: "50%",
                     backgroundColor: bg,
                     textDecoration: "none",

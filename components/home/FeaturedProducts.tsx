@@ -12,20 +12,20 @@ interface FeaturedProductsProps {
 
 function StarRating({ rating, reviews }: { rating: number; reviews: number }) {
   return (
-    <div className="flex items-center justify-center" style={{ gap: "4px", marginTop: "4px" }}>
+    <div className="flex items-center justify-center" style={{ gap: "2px", marginTop: "4px" }}>
       {Array.from({ length: 5 }).map((_, i) => (
         <span
           key={i}
           style={{
             fontSize: "12px",
-            color: i < rating ? "var(--color-honey-yellow)" : "var(--color-gray-light)",
+            opacity: i < rating ? 1 : 0.25,
           }}
         >
           ⭐
         </span>
       ))}
       {reviews > 0 && (
-        <span style={{ fontSize: "11px", color: "var(--color-gray)", marginLeft: "2px" }}>
+        <span style={{ fontFamily: "var(--font-inter)", fontSize: "11px", color: "var(--color-gray)", marginLeft: "2px" }}>
           ({reviews})
         </span>
       )}
@@ -49,10 +49,11 @@ export function FeaturedProducts({ products }: FeaturedProductsProps) {
         <h2
           className="text-center font-bold"
           style={{
+            fontFamily: "var(--font-montserrat)",
             fontSize: "24px",
+            fontWeight: 800,
             color: "var(--color-black)",
             marginBottom: "24px",
-            fontFamily: "var(--font-montserrat)",
           }}
         >
           🤍 FEATURED PRODUCTS 🤍
@@ -121,7 +122,7 @@ export function FeaturedProducts({ products }: FeaturedProductsProps) {
                     style={{
                       width: "100%",
                       aspectRatio: "3/4",
-                      backgroundColor: "#F9F5F0",
+                      backgroundColor: "var(--color-warm-beige)",
                       borderRadius: "8px",
                       overflow: "hidden",
                       display: "flex",
@@ -148,7 +149,8 @@ export function FeaturedProducts({ products }: FeaturedProductsProps) {
                   <p
                     style={{
                       marginTop: "8px",
-                      fontSize: "13px",
+                      fontFamily: "var(--font-montserrat)",
+                      fontSize: "12px",
                       fontWeight: 500,
                       color: "var(--color-black)",
                       textAlign: "center",
@@ -167,7 +169,8 @@ export function FeaturedProducts({ products }: FeaturedProductsProps) {
                   <p
                     style={{
                       marginTop: "4px",
-                      fontSize: "15px",
+                      fontFamily: "var(--font-montserrat)",
+                      fontSize: "14px",
                       fontWeight: 700,
                       color: "var(--color-black)",
                       textAlign: "center",
