@@ -1,125 +1,172 @@
 "use client"
 
 import Link from "next/link"
-import type { Variants } from "motion/react"
-import { motion } from "motion/react"
-
-const BADGES = [
-  { text: "Bee Kind",            top: "10%",  right: "-5%",  rotate: "8deg",   delay: 0 },
-  { text: "You Are My Sunshine", top: "42%",  right: "-10%", rotate: "-5deg",  delay: 0.3 },
-  { text: "good things take time",bottom: "20%",right: "-4%",rotate: "4deg",   delay: 0.6 },
-  { text: "Radiate Kindness",    bottom: "6%",  left: "8%",  rotate: "-6deg",  delay: 0.9 },
-]
-
-const WORD_VARIANTS: Variants = {
-  hidden: { opacity: 0, y: 24, filter: "blur(8px)" },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: { delay: i * 0.13, duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-  }),
-}
-
-const H1_LINES = [
-  { text: "CUTE. CUSTOM.", coral: false },
-  { text: "MADE",          coral: true  },
-  { text: "TO MAKE YOU",   coral: false },
-  { text: "SMILE! ♥ ♥",   coral: true  },
-]
 
 export function HeroSection() {
   return (
     <section
-      className="relative min-h-[90vh] overflow-hidden"
-      style={{ backgroundColor: "var(--color-topbar)" }}
+      className="relative w-full overflow-hidden"
+      style={{
+        backgroundColor: "var(--color-surface)",
+        minHeight: "420px",
+      }}
     >
-      <div className="mx-auto flex max-w-7xl flex-col items-center gap-10 px-4 py-16 sm:px-6 lg:flex-row lg:items-center lg:px-8 lg:py-20">
-
-        {/* ── Left (60%) ── */}
-        <div className="flex-[3] space-y-5">
+      <div
+        className="flex flex-col md:flex-row"
+        style={{ minHeight: "420px" }}
+      >
+        {/* ── Left (~42%) ── */}
+        <div
+          className="flex flex-col justify-center"
+          style={{
+            width: "100%",
+            paddingLeft: "clamp(24px, 5vw, 64px)",
+            paddingRight: "clamp(16px, 3vw, 40px)",
+            paddingTop: "40px",
+            paddingBottom: "40px",
+            flex: "0 0 42%",
+          }}
+        >
           {/* Eyebrow pill */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
+          <span
+            className="inline-block mb-3 font-bold text-white"
+            style={{
+              backgroundColor: "var(--color-primary)",
+              borderRadius: "9999px",
+              padding: "4px 14px",
+              fontSize: "11px",
+              letterSpacing: "0.05em",
+            }}
           >
-            <span className="inline-block rounded-full bg-[var(--color-coral)] px-4 py-1.5 text-[12px] font-bold uppercase tracking-widest text-white">
-              MADE JUST FOR YOU!
-            </span>
-          </motion.div>
+            MADE JUST FOR YOU!
+          </span>
 
           {/* H1 */}
-          <h1 className="space-y-1 font-black leading-tight tracking-tight">
-            {H1_LINES.map(({ text, coral }, i) => (
-              <motion.span
-                key={text}
-                custom={i}
-                variants={WORD_VARIANTS}
-                initial="hidden"
-                animate="visible"
-                className="block"
-                style={{
-                  fontSize: "clamp(2.25rem, 5vw, 4rem)",
-                  color: coral ? "var(--color-coral)" : "var(--color-ink)",
-                  lineHeight: 1.05,
-                }}
-              >
-                {text}
-              </motion.span>
-            ))}
+          <h1 style={{ lineHeight: 1.05, margin: 0 }}>
+            <span
+              className="block"
+              style={{
+                fontSize: "clamp(32px, 4vw, 48px)",
+                fontWeight: 800,
+                color: "var(--color-black)",
+              }}
+            >
+              Cute. Custom.
+            </span>
+            <span
+              className="block"
+              style={{
+                fontSize: "clamp(56px, 8vw, 96px)",
+                fontWeight: 900,
+                color: "var(--color-primary)",
+                letterSpacing: "-0.02em",
+                lineHeight: 1,
+              }}
+            >
+              MADE
+            </span>
+            <span
+              className="block"
+              style={{
+                fontSize: "clamp(28px, 3.5vw, 42px)",
+                fontWeight: 800,
+                color: "var(--color-black)",
+              }}
+            >
+              TO MAKE YOU
+            </span>
+            <span
+              className="block"
+              style={{
+                fontSize: "clamp(36px, 5vw, 56px)",
+                fontWeight: 900,
+                color: "var(--color-primary)",
+              }}
+            >
+              SMILE! ♥ ♥
+            </span>
           </h1>
 
           {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.65, duration: 0.45 }}
-            className="flex flex-col gap-3 sm:flex-row sm:items-center"
-          >
+          <div style={{ marginTop: "24px" }}>
             <Link
               href="/shop"
-              className="inline-flex items-center justify-center rounded-full bg-[var(--color-ink)] px-8 py-3.5 text-[15px] font-bold text-white shadow-md transition-all hover:bg-[oklch(0.2_0_0)] hover:scale-[1.03] active:scale-[0.98]"
+              className="inline-flex items-center gap-1.5 font-semibold text-white transition-colors hover:bg-[var(--color-primary)]"
+              style={{
+                backgroundColor: "var(--color-black)",
+                padding: "12px 28px",
+                borderRadius: "9999px",
+                fontSize: "14px",
+              }}
             >
               SHOP NOW ♥
             </Link>
-          </motion.div>
+          </div>
         </div>
 
-        {/* ── Right (40%) ── */}
-        <div className="relative w-full flex-[2]">
-          <div className="relative min-h-[400px] rounded-2xl border-2 border-[var(--color-border)] bg-white shadow-sm">
-            <div className="flex h-full min-h-[400px] flex-col items-center justify-center gap-3 p-8 text-center">
-              <span className="text-6xl">🐝</span>
-              <p className="text-[12px] text-[var(--color-secondary)]">
-                {/* TODO: replace with real product photos from Drive */}
-                Product collage coming soon
-              </p>
-            </div>
+        {/* ── Right (~58%) ── */}
+        <div
+          className="relative flex items-center justify-center"
+          style={{
+            flex: "0 0 58%",
+            backgroundColor: "var(--color-surface)",
+            overflow: "hidden",
+            minHeight: "380px",
+          }}
+        >
+          {/* Product collage placeholder */}
+          <div
+            className="flex items-center justify-center rounded-2xl"
+            style={{
+              width: "90%",
+              height: "380px",
+              backgroundColor: "#FFF5F5",
+              color: "var(--color-gray)",
+              fontSize: "13px",
+            }}
+          >
+            {/* TODO: Replace with real product photos from Drive */}
+            {/* Mockup shows: pink tumbler center, white pillow right, */}
+            {/*   keychain right, mug lower center, all with sunflower/floral */}
+            {/*   illustrations overlaid */}
+            Product showcase — photos coming soon
           </div>
 
-          {/* Floating design badges */}
-          {BADGES.map(({ text, delay, ...style }) => (
-            <motion.div
-              key={text}
-              animate={{ y: [0, -8, 0] }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: [0.45, 0, 0.55, 1] as [number, number, number, number],
-                delay,
-              }}
-              className="absolute hidden rounded-full bg-white px-3 py-1.5 text-[11px] font-bold text-[var(--color-coral)] shadow-md ring-1 ring-[var(--color-border)] lg:block"
-              style={style as React.CSSProperties}
-            >
-              {text}
-            </motion.div>
-          ))}
-
-          {/* Bottom-right custom designs badge */}
-          <div className="absolute -bottom-4 -right-4 hidden h-24 w-24 items-center justify-center rounded-full bg-[var(--color-coral)] p-2 text-center text-[9px] font-bold uppercase leading-tight text-white shadow-lg lg:flex">
-            CUSTOM DESIGNS, NAMES, PHOTOS & MORE!
+          {/* Floating circle badge — top right of collage */}
+          <div
+            className="absolute flex flex-col items-center justify-center text-center text-white"
+            style={{
+              top: "20px",
+              right: "20px",
+              width: "110px",
+              height: "110px",
+              borderRadius: "50%",
+              backgroundColor: "var(--color-primary)",
+              padding: "12px",
+            }}
+          >
+            <span style={{ fontSize: "13px", fontWeight: 800, lineHeight: 1.2 }}>CUSTOM</span>
+            <span style={{ fontSize: "11px", lineHeight: 1.2 }}>DESIGNS,</span>
+            <span style={{ fontSize: "10px", lineHeight: 1.2 }}>NAMES, PHOTOS</span>
+            <span style={{ fontSize: "11px", fontWeight: 700, lineHeight: 1.2 }}>&amp; MORE!</span>
           </div>
+
+          {/* TODO: add once real photos are in place */}
+          {/* Floating design text badges (desktop only) */}
+          {/*
+          <div className="absolute hidden lg:block" style={{ top: "30%", left: "5%" }}>
+            <span style={{ fontSize: "18px", fontStyle: "italic", color: "var(--color-black)" }}>Bee Kind</span>
+          </div>
+          <div className="absolute hidden lg:block" style={{ top: "20%", right: "20%" }}>
+            <span style={{ fontSize: "16px", color: "var(--color-black)" }}>You Are My Sunshine</span>
+          </div>
+          <div className="absolute hidden lg:block" style={{ bottom: "30%", left: "10%" }}>
+            <span style={{ fontSize: "14px", fontStyle: "italic", color: "var(--color-black)" }}>good things take time</span>
+          </div>
+          <div className="absolute hidden lg:block" style={{ bottom: "20%", right: "15%" }}>
+            <span style={{ fontSize: "15px", color: "var(--color-black)" }}>Radiate Kindness</span>
+          </div>
+          */}
         </div>
       </div>
     </section>

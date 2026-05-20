@@ -14,11 +14,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "HoneyBee Designs | Cute. Custom. Made for You.",
+    default: "HoneyBee Designs | Cute. Custom. Made to Make You Smile!",
     template: "%s | HoneyBee Designs",
   },
   description:
-    "Custom sublimation apparel, drinkware, accessories and gifts. Handmade with love, shipped with smiles.",
+    "Custom sublimation apparel, drinkware, keychains, accessories and gifts. Handmade with love, shipped with smiles. 5,000+ happy customers!",
   keywords: [
     "sublimation",
     "custom merch",
