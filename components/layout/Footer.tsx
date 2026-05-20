@@ -197,7 +197,7 @@ export function Footer() {
           style={{ borderColor: "var(--color-border)" }}
         >
           <p style={{ fontFamily: "var(--font-inter)", fontSize: "11px", color: "var(--color-gray)" }}>
-            © 2024, Honey Bee Designs. All rights reserved.
+            © {new Date().getFullYear()}, Honey Bee Designs. All rights reserved.
           </p>
           <p className="italic" style={{ fontFamily: "var(--font-inter)", fontSize: "11px", color: "var(--color-gray)" }}>
             Unique designs made just for you! 🌻

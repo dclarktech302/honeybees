@@ -1,138 +1,217 @@
 import Link from "next/link"
-import { Truck } from "lucide-react"
 
 export function PromoBanners() {
   return (
     <section>
-      <div className="grid grid-cols-2 lg:grid-cols-4">
-
-        {/* Panel 1 — Custom Order */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(2, 1fr)",
+          width: "100%",
+        }}
+        className="sm:grid-cols-4"
+      >
+        {/* Panel 1 — Black / Custom Order */}
         <div
-          className="flex flex-col justify-between"
+          className="flex flex-col justify-center relative overflow-hidden"
           style={{
-            backgroundColor: "var(--color-black)",
-            padding: "28px 24px",
+            backgroundColor: "#1A1A1A",
             minHeight: "220px",
+            padding: "28px 24px",
           }}
         >
-          <div>
-            <p
-              className="text-white"
-              style={{ fontFamily: "var(--font-montserrat)", fontSize: "18px", fontWeight: 700, lineHeight: 1.2 }}
-            >
-              🐝 NEED SOMETHING
-            </p>
-            <p
-              style={{
-                fontFamily: "var(--font-montserrat)",
-                fontSize: "30px",
-                fontWeight: 900,
-                color: "var(--color-primary)",
-                lineHeight: 1.1,
-              }}
-            >
-              CUSTOM?
-            </p>
-            <p
-              className="text-white"
-              style={{ fontFamily: "var(--font-montserrat)", fontSize: "14px", fontWeight: 600, marginTop: "4px" }}
-            >
-              WE&apos;VE GOT YOU!
-            </p>
-          </div>
+          <p
+            style={{
+              fontFamily: "var(--font-montserrat)",
+              fontSize: "15px",
+              fontWeight: 700,
+              color: "white",
+              textTransform: "uppercase",
+              marginBottom: "2px",
+            }}
+          >
+            🐝 NEED SOMETHING
+          </p>
+          <p
+            style={{
+              fontFamily: "var(--font-montserrat)",
+              fontSize: "32px",
+              fontWeight: 900,
+              color: "var(--color-primary)",
+              textTransform: "uppercase",
+              lineHeight: 1,
+              marginBottom: "4px",
+            }}
+          >
+            CUSTOM?
+          </p>
+          <p
+            style={{
+              fontFamily: "var(--font-montserrat)",
+              fontSize: "13px",
+              fontWeight: 600,
+              color: "white",
+              marginBottom: "20px",
+            }}
+          >
+            WE&apos;VE GOT YOU!
+          </p>
           <Link
             href="/contact"
-            className="text-white inline-block transition-colors hover:bg-[var(--color-primary-dark)]"
+            className="transition-colors hover:bg-[var(--color-primary-dark)]"
             style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
               backgroundColor: "var(--color-primary)",
-              padding: "8px 18px",
-              borderRadius: "9999px",
+              color: "white",
               fontFamily: "var(--font-montserrat)",
-              fontSize: "12px",
+              fontSize: "11px",
               fontWeight: 700,
-              marginTop: "48px",
+              textTransform: "uppercase",
+              letterSpacing: "0.06em",
+              padding: "9px 20px",
+              borderRadius: "9999px",
               textDecoration: "none",
               alignSelf: "flex-start",
             }}
           >
             CUSTOM ORDER →
           </Link>
+          {/* TODO: bee mascot illustration — position absolute, right 0, bottom 0, height 90% */}
         </div>
 
-        {/* Panel 2 — Free Shipping */}
+        {/* Panel 2 — White / Free Shipping */}
         <div
           className="flex flex-col items-center justify-center text-center"
           style={{
-            backgroundColor: "var(--color-surface)",
+            backgroundColor: "white",
             border: "1px solid var(--color-border)",
-            padding: "28px 24px",
             minHeight: "220px",
+            padding: "28px 24px",
           }}
         >
           <p
-            style={{ fontFamily: "var(--font-montserrat)", fontSize: "22px", fontWeight: 900, color: "var(--color-black)" }}
+            style={{
+              fontFamily: "var(--font-montserrat)",
+              fontSize: "22px",
+              fontWeight: 900,
+              color: "var(--color-black)",
+              textTransform: "uppercase",
+              marginBottom: "4px",
+            }}
           >
             🚚 FREE SHIPPING
           </p>
           <p
-            style={{ fontFamily: "var(--font-montserrat)", fontSize: "26px", fontWeight: 900, color: "var(--color-primary)" }}
+            style={{
+              fontFamily: "var(--font-montserrat)",
+              fontSize: "26px",
+              fontWeight: 900,
+              color: "var(--color-primary)",
+              textTransform: "uppercase",
+              lineHeight: 1,
+              marginBottom: "20px",
+            }}
           >
             ON ORDERS $75+
           </p>
-          <Truck style={{ width: "48px", height: "48px", color: "var(--color-primary)", marginTop: "32px" }} />
+          {/* TODO: replace with pink delivery truck illustration */}
+          <span style={{ fontSize: "52px", color: "var(--color-primary)", opacity: 0.5, lineHeight: 1 }}>
+            🚚
+          </span>
         </div>
 
-        {/* Panel 3 — Be Kind */}
+        {/* Panel 3 — Warm pink / Be Kind */}
         <div
           className="flex flex-col items-center justify-center text-center"
-          style={{ backgroundColor: "#FFF0E8", padding: "28px 24px", minHeight: "220px" }}
+          style={{
+            backgroundColor: "#FFF0E8",
+            minHeight: "220px",
+            padding: "28px 24px",
+            gap: "4px",
+          }}
         >
           <p
-            style={{ fontFamily: "var(--font-montserrat)", fontSize: "28px", fontWeight: 900, color: "var(--color-primary)", lineHeight: 1.1 }}
+            style={{
+              fontFamily: "var(--font-montserrat)",
+              fontSize: "30px",
+              fontWeight: 900,
+              color: "var(--color-primary)",
+              lineHeight: 1.1,
+            }}
           >
             🌸 BE KIND
           </p>
           <p
-            style={{ fontFamily: "var(--font-montserrat)", fontSize: "28px", fontWeight: 900, color: "var(--color-black)", lineHeight: 1.1 }}
+            style={{
+              fontFamily: "var(--font-montserrat)",
+              fontSize: "30px",
+              fontWeight: 900,
+              color: "var(--color-black)",
+              lineHeight: 1.1,
+            }}
           >
             🌻 BE HAPPY
           </p>
           <p
-            style={{ fontFamily: "var(--font-montserrat)", fontSize: "28px", fontWeight: 900, color: "var(--color-primary)", lineHeight: 1.1 }}
+            style={{
+              fontFamily: "var(--font-montserrat)",
+              fontSize: "30px",
+              fontWeight: 900,
+              color: "var(--color-primary)",
+              lineHeight: 1.1,
+            }}
           >
             🐝 BE YOU
           </p>
+          {/* TODO: floral/bee decoration bottom right */}
         </div>
 
-        {/* Panel 4 — Thank You */}
+        {/* Panel 4 — White / Thank You */}
         <div
           className="flex flex-col items-center justify-center text-center"
           style={{
-            backgroundColor: "var(--color-surface)",
+            backgroundColor: "white",
             border: "1px solid var(--color-border)",
-            padding: "28px 24px",
             minHeight: "220px",
+            padding: "28px 24px",
           }}
         >
           <p
             style={{
               fontFamily: "var(--font-pacifico)",
-              fontSize: "26px",
+              fontSize: "28px",
               color: "var(--color-primary)",
-              marginBottom: "4px",
+              marginBottom: "8px",
             }}
           >
             💛 THANK YOU!
           </p>
-          <p style={{ fontFamily: "var(--font-montserrat)", fontSize: "14px", color: "var(--color-black)" }}>
+          <p
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontSize: "14px",
+              color: "var(--color-black)",
+              marginBottom: "2px",
+            }}
+          >
             for supporting my
           </p>
-          <p style={{ fontFamily: "var(--font-montserrat)", fontSize: "14px", fontWeight: 700, color: "var(--color-black)" }}>
+          <p
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontSize: "14px",
+              fontWeight: 600,
+              color: "var(--color-black)",
+              marginBottom: "16px",
+            }}
+          >
             small business!
           </p>
-          <span style={{ fontSize: "20px", marginTop: "32px", display: "block" }}>🌻</span>
+          {/* TODO: replace with bee + heart illustration */}
+          <span style={{ fontSize: "32px", lineHeight: 1 }}>🌻</span>
         </div>
-
       </div>
     </section>
   )
