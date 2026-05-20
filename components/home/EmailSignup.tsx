@@ -98,11 +98,11 @@ export function EmailSignup() {
             {/* TODO: bee holding envelope illustration */}
             <div style={{ fontSize: "40px", color: "var(--color-primary)", marginBottom: "16px" }}>✉</div>
 
-            <h2 style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-black)" }}>
-              ♥ JOIN THE HIVE!
+            <h2 style={{ fontSize: "20px", fontWeight: 400, color: "var(--color-black)", fontFamily: "var(--font-pacifico)" }}>
+              🐝 JOIN THE HIVE!
             </h2>
             <p style={{ fontSize: "13px", color: "var(--color-gray)", marginTop: "8px", marginBottom: "24px" }}>
-              Be the first to know about new arrivals, sales &amp; more!
+              Be the first to know about new arrivals, sales &amp; more! 🌻
             </p>
 
             {status === "success" ? (

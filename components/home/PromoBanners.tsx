@@ -17,7 +17,7 @@ export function PromoBanners() {
         >
           <div>
             <p className="font-bold text-white" style={{ fontSize: "18px", lineHeight: 1.2 }}>
-              NEED SOMETHING
+              🐝 NEED SOMETHING
             </p>
             <p
               className="font-black"
@@ -29,7 +29,6 @@ export function PromoBanners() {
               WE&apos;VE GOT YOU!
             </p>
           </div>
-          {/* TODO: bee mascot illustration holding heart */}
           <Link
             href="/contact"
             className="font-bold text-white inline-block transition-colors hover:bg-[var(--color-primary-dark)]"
@@ -58,24 +57,22 @@ export function PromoBanners() {
           }}
         >
           <p className="font-black" style={{ fontSize: "22px", fontWeight: 900, color: "var(--color-black)" }}>
-            FREE SHIPPING
+            🚚 FREE SHIPPING
           </p>
           <p className="font-black" style={{ fontSize: "26px", fontWeight: 900, color: "var(--color-primary)" }}>
             ON ORDERS $75+
           </p>
-          {/* TODO: pink delivery truck illustration */}
           <Truck style={{ width: "48px", height: "48px", color: "var(--color-primary)", marginTop: "32px" }} />
         </div>
 
         {/* Panel 3 — Be Kind */}
         <div
           className="flex flex-col items-center justify-center text-center"
-          style={{ backgroundColor: "#FFF0F0", padding: "28px 24px", minHeight: "220px" }}
+          style={{ backgroundColor: "#FFF0E8", padding: "28px 24px", minHeight: "220px" }}
         >
-          {/* TODO: floral/bee decoration */}
-          <p className="font-black" style={{ fontSize: "28px", fontWeight: 900, color: "var(--color-primary)", lineHeight: 1.1 }}>BE KIND</p>
-          <p className="font-black" style={{ fontSize: "28px", fontWeight: 900, color: "var(--color-black)", lineHeight: 1.1 }}>BE HAPPY</p>
-          <p className="font-black" style={{ fontSize: "28px", fontWeight: 900, color: "var(--color-primary)", lineHeight: 1.1 }}>BE YOU</p>
+          <p className="font-black" style={{ fontSize: "28px", fontWeight: 900, color: "var(--color-primary)", lineHeight: 1.1 }}>🌸 BE KIND</p>
+          <p className="font-black" style={{ fontSize: "28px", fontWeight: 900, color: "var(--color-black)", lineHeight: 1.1 }}>🌻 BE HAPPY</p>
+          <p className="font-black" style={{ fontSize: "28px", fontWeight: 900, color: "var(--color-primary)", lineHeight: 1.1 }}>🐝 BE YOU</p>
         </div>
 
         {/* Panel 4 — Thank You */}
@@ -88,13 +85,12 @@ export function PromoBanners() {
             minHeight: "220px",
           }}
         >
-          {/* TODO: bee + heart illustration */}
-          <p style={{ fontSize: "28px", fontWeight: 700, fontStyle: "italic", color: "var(--color-primary)" }}>
-            THANK YOU!
+          <p style={{ fontSize: "28px", fontWeight: 700, fontStyle: "italic", color: "var(--color-primary)", fontFamily: "var(--font-pacifico)" }}>
+            💛 THANK YOU!
           </p>
           <p style={{ fontSize: "14px", color: "var(--color-black)" }}>for supporting my</p>
           <p style={{ fontSize: "14px", fontWeight: 700, color: "var(--color-black)" }}>small business!</p>
-          <span style={{ fontSize: "20px", color: "var(--color-primary)", marginTop: "32px", display: "block" }}>♥</span>
+          <span style={{ fontSize: "20px", marginTop: "32px", display: "block" }}>🌻</span>
         </div>
 
       </div>

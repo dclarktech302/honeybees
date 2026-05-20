@@ -46,9 +46,9 @@ export function ShopCollections() {
         {/* Heading */}
         <h2
           className="text-center font-bold"
-          style={{ fontSize: "24px", color: "var(--color-black)", marginBottom: "32px" }}
+          style={{ fontSize: "24px", color: "var(--color-black)", marginBottom: "32px", fontFamily: "var(--font-montserrat)" }}
         >
-          ♥ SHOP OUR COLLECTIONS ♥
+          🤍 SHOP OUR COLLECTIONS 🤍
         </h2>
 
         {/* 6-tile grid */}

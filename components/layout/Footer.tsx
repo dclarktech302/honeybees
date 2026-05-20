@@ -65,7 +65,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-3 italic" style={{ fontSize: "13px", color: "var(--color-gray)" }}>
-              Cute. Custom. Made for you!
+              Cute. Custom. Made for you! 🐝
             </p>
             <p style={{ marginTop: "8px", fontSize: "13px", color: "var(--color-gray)", lineHeight: 1.6, maxWidth: "200px" }}>
               Thank you for supporting my small business. Every order means the world to me!
@@ -177,7 +177,7 @@ export function Footer() {
             © 2024, Honey Bee Designs. All rights reserved.
           </p>
           <p className="italic" style={{ fontSize: "11px", color: "var(--color-gray)" }}>
-            Unique designs made just for you! ✨
+            Unique designs made just for you! 🌻
           </p>
           <p style={{ fontSize: "11px", color: "var(--color-gray)" }}>
             <Link href="#" className="transition-colors hover:text-[var(--color-primary)]" style={{ color: "var(--color-gray)" }}>

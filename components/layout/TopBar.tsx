@@ -1,5 +1,5 @@
 const ITEMS = [
-  { icon: "♥",  text: "Made with Love" },
+  { icon: "🤍", text: "Made with Love" },
   { icon: "📦", text: "Packed with Care" },
   { icon: "🚚", text: "Shipped with Smiles" },
   { icon: "🚚", text: "Free Shipping on Orders $75+" },

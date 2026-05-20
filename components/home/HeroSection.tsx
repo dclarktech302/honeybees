@@ -2,6 +2,9 @@
 
 import Link from "next/link"
 
+// Set to true once Sarah provides the 7 hero images in /public/images/hero/
+const hasImages = false
+
 export function HeroSection() {
   return (
     <section
@@ -27,19 +30,36 @@ export function HeroSection() {
             flex: "0 0 42%",
           }}
         >
-          {/* Eyebrow pill */}
-          <span
-            className="inline-block mb-3 font-bold text-white"
-            style={{
-              backgroundColor: "var(--color-primary)",
-              borderRadius: "9999px",
-              padding: "4px 14px",
-              fontSize: "11px",
-              letterSpacing: "0.05em",
-            }}
-          >
-            MADE JUST FOR YOU!
-          </span>
+          {/* Eyebrow pill with floating hearts */}
+          <div className="relative inline-block mb-3" style={{ alignSelf: "flex-start" }}>
+            <span
+              className="inline-block font-bold text-white"
+              style={{
+                backgroundColor: "var(--color-primary)",
+                borderRadius: "9999px",
+                padding: "4px 14px",
+                fontSize: "11px",
+                letterSpacing: "0.05em",
+              }}
+            >
+              MADE JUST FOR YOU!
+            </span>
+            {/* Floating mini-hearts */}
+            <span
+              aria-hidden
+              className="absolute"
+              style={{ top: "-8px", right: "-10px", fontSize: "10px", color: "var(--color-primary)" }}
+            >
+              🤍
+            </span>
+            <span
+              aria-hidden
+              className="absolute"
+              style={{ bottom: "-8px", left: "-8px", fontSize: "8px", color: "var(--color-primary)" }}
+            >
+              🤍
+            </span>
+          </div>
 
           {/* H1 */}
           <h1 style={{ lineHeight: 1.05, margin: 0 }}>
@@ -49,6 +69,7 @@ export function HeroSection() {
                 fontSize: "clamp(32px, 4vw, 48px)",
                 fontWeight: 800,
                 color: "var(--color-black)",
+                fontFamily: "var(--font-montserrat)",
               }}
             >
               Cute. Custom.
@@ -61,6 +82,7 @@ export function HeroSection() {
                 color: "var(--color-primary)",
                 letterSpacing: "-0.02em",
                 lineHeight: 1,
+                fontFamily: "var(--font-montserrat)",
               }}
             >
               MADE
@@ -71,6 +93,7 @@ export function HeroSection() {
                 fontSize: "clamp(28px, 3.5vw, 42px)",
                 fontWeight: 800,
                 color: "var(--color-black)",
+                fontFamily: "var(--font-montserrat)",
               }}
             >
               TO MAKE YOU
@@ -81,9 +104,10 @@ export function HeroSection() {
                 fontSize: "clamp(36px, 5vw, 56px)",
                 fontWeight: 900,
                 color: "var(--color-primary)",
+                fontFamily: "var(--font-montserrat)",
               }}
             >
-              SMILE! ♥ ♥
+              SMILE! 🤍 🤍
             </span>
           </h1>
 
@@ -99,38 +123,134 @@ export function HeroSection() {
                 fontSize: "14px",
               }}
             >
-              SHOP NOW ♥
+              SHOP NOW 🤍
             </Link>
           </div>
         </div>
 
-        {/* ── Right (~58%) ── */}
+        {/* ── Right (~58%) — hero image slots ── */}
         <div
           className="relative flex items-center justify-center"
           style={{
             flex: "0 0 58%",
-            backgroundColor: "var(--color-surface)",
+            backgroundColor: "var(--color-cream)",
             overflow: "hidden",
             minHeight: "380px",
           }}
         >
-          {/* Product collage placeholder */}
-          <div
-            className="flex items-center justify-center rounded-2xl"
-            style={{
-              width: "90%",
-              height: "380px",
-              backgroundColor: "#FFF5F5",
-              color: "var(--color-gray)",
-              fontSize: "13px",
-            }}
-          >
-            {/* TODO: Replace with real product photos from Drive */}
-            {/* Mockup shows: pink tumbler center, white pillow right, */}
-            {/*   keychain right, mug lower center, all with sunflower/floral */}
-            {/*   illustrations overlaid */}
-            Product showcase — photos coming soon
-          </div>
+          {hasImages ? (
+            <>
+              {/*
+               * Slot: tumbler
+               * File: /public/images/hero/tumbler.png
+               * Pink tumbler with sunflower design — center-left of collage
+               */}
+              <div
+                data-slot="tumbler"
+                className="absolute"
+                style={{ bottom: "10%", left: "20%", width: "160px", height: "200px" }}
+              >
+                {/* TODO: <img src="/images/hero/tumbler.png" alt="Custom tumbler" style={{ width: "100%", height: "100%", objectFit: "contain" }} /> */}
+              </div>
+
+              {/*
+               * Slot: pillow
+               * File: /public/images/hero/pillow.png
+               * White pillow with floral design — right side
+               */}
+              <div
+                data-slot="pillow"
+                className="absolute"
+                style={{ top: "10%", right: "12%", width: "140px", height: "140px" }}
+              >
+                {/* TODO: <img src="/images/hero/pillow.png" alt="Custom pillow" style={{ width: "100%", height: "100%", objectFit: "contain" }} /> */}
+              </div>
+
+              {/*
+               * Slot: keychain
+               * File: /public/images/hero/keychain.png
+               * Small keychain — right side, below pillow
+               */}
+              <div
+                data-slot="keychain"
+                className="absolute"
+                style={{ top: "55%", right: "10%", width: "80px", height: "100px" }}
+              >
+                {/* TODO: <img src="/images/hero/keychain.png" alt="Custom keychain" style={{ width: "100%", height: "100%", objectFit: "contain" }} /> */}
+              </div>
+
+              {/*
+               * Slot: mug
+               * File: /public/images/hero/mug.png
+               * Mug with custom design — lower center
+               */}
+              <div
+                data-slot="mug"
+                className="absolute"
+                style={{ bottom: "8%", left: "48%", width: "120px", height: "120px" }}
+              >
+                {/* TODO: <img src="/images/hero/mug.png" alt="Custom mug" style={{ width: "100%", height: "100%", objectFit: "contain" }} /> */}
+              </div>
+
+              {/*
+               * Slot: floral-left
+               * File: /public/images/hero/floral-left.png
+               * Floral/botanical illustration — left edge overlay
+               */}
+              <div
+                data-slot="floral-left"
+                className="absolute"
+                style={{ top: "0", left: "0", width: "120px", height: "200px" }}
+              >
+                {/* TODO: <img src="/images/hero/floral-left.png" alt="" aria-hidden style={{ width: "100%", height: "100%", objectFit: "contain" }} /> */}
+              </div>
+
+              {/*
+               * Slot: floral-right
+               * File: /public/images/hero/floral-right.png
+               * Floral illustration — bottom-right corner overlay
+               */}
+              <div
+                data-slot="floral-right"
+                className="absolute"
+                style={{ bottom: "0", right: "0", width: "120px", height: "160px" }}
+              >
+                {/* TODO: <img src="/images/hero/floral-right.png" alt="" aria-hidden style={{ width: "100%", height: "100%", objectFit: "contain" }} /> */}
+              </div>
+
+              {/*
+               * Slot: floral-top-right
+               * File: /public/images/hero/floral-top-right.png
+               * Small floral sprig — top-right accent
+               */}
+              <div
+                data-slot="floral-top-right"
+                className="absolute"
+                style={{ top: "0", right: "0", width: "80px", height: "80px" }}
+              >
+                {/* TODO: <img src="/images/hero/floral-top-right.png" alt="" aria-hidden style={{ width: "100%", height: "100%", objectFit: "contain" }} /> */}
+              </div>
+            </>
+          ) : (
+            /* Placeholder shown until Sarah provides images */
+            <div
+              className="flex flex-col items-center justify-center rounded-2xl text-center"
+              style={{
+                width: "90%",
+                height: "380px",
+                backgroundColor: "#FFF5F5",
+                color: "var(--color-gray)",
+                fontSize: "13px",
+                gap: "8px",
+              }}
+            >
+              <span style={{ fontSize: "32px" }}>🐝</span>
+              <p style={{ fontWeight: 600 }}>Product photos coming soon!</p>
+              <p style={{ fontSize: "11px" }}>
+                7 image slots ready · tumbler · pillow · keychain · mug · 3 florals
+              </p>
+            </div>
+          )}
 
           {/* Floating circle badge — top right of collage */}
           <div
@@ -150,23 +270,6 @@ export function HeroSection() {
             <span style={{ fontSize: "10px", lineHeight: 1.2 }}>NAMES, PHOTOS</span>
             <span style={{ fontSize: "11px", fontWeight: 700, lineHeight: 1.2 }}>&amp; MORE!</span>
           </div>
-
-          {/* TODO: add once real photos are in place */}
-          {/* Floating design text badges (desktop only) */}
-          {/*
-          <div className="absolute hidden lg:block" style={{ top: "30%", left: "5%" }}>
-            <span style={{ fontSize: "18px", fontStyle: "italic", color: "var(--color-black)" }}>Bee Kind</span>
-          </div>
-          <div className="absolute hidden lg:block" style={{ top: "20%", right: "20%" }}>
-            <span style={{ fontSize: "16px", color: "var(--color-black)" }}>You Are My Sunshine</span>
-          </div>
-          <div className="absolute hidden lg:block" style={{ bottom: "30%", left: "10%" }}>
-            <span style={{ fontSize: "14px", fontStyle: "italic", color: "var(--color-black)" }}>good things take time</span>
-          </div>
-          <div className="absolute hidden lg:block" style={{ bottom: "20%", right: "15%" }}>
-            <span style={{ fontSize: "15px", color: "var(--color-black)" }}>Radiate Kindness</span>
-          </div>
-          */}
         </div>
       </div>
     </section>

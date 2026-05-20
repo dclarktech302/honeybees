@@ -77,16 +77,14 @@ export function CategoryGrid() {
         {/* Heading */}
         <div
           className="flex items-center justify-center"
-          style={{ gap: "2rem", marginBottom: "32px" }}
+          style={{ marginBottom: "32px" }}
         >
-          <span style={{ color: "var(--color-primary)", fontSize: "20px" }}>♥</span>
           <h2
             className="font-extrabold text-center"
-            style={{ fontSize: "24px", color: "var(--color-black)", margin: 0 }}
+            style={{ fontSize: "24px", color: "var(--color-black)", margin: 0, fontFamily: "var(--font-montserrat)" }}
           >
-            SHOP BY CATEGORY
+            🤍 SHOP BY CATEGORY 🤍
           </h2>
-          <span style={{ color: "var(--color-primary)", fontSize: "20px" }}>♥</span>
         </div>
 
         {/* Horizontal scroll row */}

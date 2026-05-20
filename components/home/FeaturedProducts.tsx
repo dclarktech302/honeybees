@@ -17,11 +17,11 @@ function StarRating({ rating, reviews }: { rating: number; reviews: number }) {
         <span
           key={i}
           style={{
-            fontSize: "11px",
-            color: i < rating ? "#F5C842" : "var(--color-gray-light)",
+            fontSize: "12px",
+            color: i < rating ? "var(--color-honey-yellow)" : "var(--color-gray-light)",
           }}
         >
-          ★
+          ⭐
         </span>
       ))}
       {reviews > 0 && (
@@ -52,9 +52,10 @@ export function FeaturedProducts({ products }: FeaturedProductsProps) {
             fontSize: "24px",
             color: "var(--color-black)",
             marginBottom: "24px",
+            fontFamily: "var(--font-montserrat)",
           }}
         >
-          ♥ FEATURED PRODUCTS ♥
+          🤍 FEATURED PRODUCTS 🤍
         </h2>
 
         {/* Carousel */}

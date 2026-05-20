@@ -1,6 +1,6 @@
 const ITEMS = [
   {
-    icon: "♥",
+    icon: "🤍",
     iconColor: "var(--color-primary)",
     title: "MADE WITH LOVE",
     desc: "Every item is crafted with so much care!",
